@@ -32,12 +32,13 @@
 
 .fundoSobre{
     background-color: #06002E;
+    padding-bottom:20% ;
     
     
 }
 .fundoSobre img{
     margin-top: 50px;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     margin-left: 150px;
 }
 
@@ -49,6 +50,7 @@
     border-radius: 20px;
     padding: 36px 34px;
     box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);
+    
 }
 
 .texto h2 {

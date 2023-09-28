@@ -48,7 +48,7 @@
     justify-content: center;
     margin: 0px 90px;
     max-width: 40%;
-    background-image: linear-gradient(to left, #190a7c, #000);
+    background-image: linear-gradient(to left, #190a7c, #07085a);
     border-radius: 20px;
     padding: 36px 34px;
     box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);
@@ -72,4 +72,10 @@
 
 .products{
     background-color: #06002E;
+}
+
+
+
+.SobreProdutos{
+    
 }

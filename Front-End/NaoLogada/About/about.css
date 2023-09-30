@@ -72,10 +72,11 @@
 
 .products{
     background-color: #06002E;
+    border-bottom: 5px black solid; 
 }
 
 
 
 .SobreProdutos{
-    
+    background-color: #06002E;
 }

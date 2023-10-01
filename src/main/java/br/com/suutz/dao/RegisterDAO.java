@@ -42,7 +42,7 @@ public class RegisterDAO {
             preparedStatement.setString(2, user.getPassword());
             preparedStatement.execute();
 
-            System.out.println("Success in insert command");
+            System.out.println("Cadastrado com sucesso");
             connection.close();
 
             return true; // Registro bem-sucedido
@@ -52,21 +52,6 @@ public class RegisterDAO {
         }
     }
 
-    public boolean userExists(Connection connection, String SQLCheckUser, User user ) throws SQLException {
-        PreparedStatement checkUserStatement = connection.prepareStatement(SQLCheckUser);
-        checkUserStatement.setString(1, user.getUser());
-        ResultSet resultSet = checkUserStatement.executeQuery();
-        resultSet.next();
-        int count = resultSet.getInt(1);
-
-        if (count > 0) {
-            // Usuário já existe, não é possível registrar novamente
-            System.out.println("User already exists. Registration failed.");
-            connection.close();
-            return false;
-        }
-        return true;
-    }
 }
 
 

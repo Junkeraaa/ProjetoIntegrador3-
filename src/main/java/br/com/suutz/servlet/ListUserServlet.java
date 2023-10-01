@@ -1,7 +1,6 @@
 package br.com.suutz.servlet;
 
 import br.com.suutz.dao.ListUsers;
-import br.com.suutz.dao.RegisterDAO;
 import br.com.suutz.model.User;
 
 import javax.servlet.ServletException;

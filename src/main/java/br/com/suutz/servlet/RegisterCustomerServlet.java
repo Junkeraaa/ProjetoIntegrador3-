@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/login")
+@WebServlet("/register")
 public class RegisterCustomerServlet extends HttpServlet {
 
     @Override

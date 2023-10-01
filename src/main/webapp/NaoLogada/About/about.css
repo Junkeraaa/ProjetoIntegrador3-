@@ -1,0 +1,94 @@
+.topo {
+    background-color: #06002E;
+    padding: 20px;
+    border-bottom: 5px black solid;
+    padding-bottom: 150px;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 50px; /* Ajuste a posição vertical conforme necessário */
+    left: 50px; /* Ajuste a posição horizontal conforme necessário */
+}
+
+/* Resto do seu CSS continua aqui */
+
+
+
+.topo img.fundo {
+    margin-top: 150px;
+    margin-left: 150px;
+}
+
+.linhas {
+    position: absolute;
+    top: 1400px;
+    right: 0;
+    margin-right:10px ;
+
+}
+
+.LearnMore {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+.LearnMore :hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+
+.fundoSobre{
+    background-color: #06002E;
+    padding-bottom:6.5% ;
+    border-bottom: 5px black solid;
+
+
+}
+.fundoSobre img{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 150px;
+}
+
+.texto {
+    justify-content: center;
+    margin: 0px 90px;
+    max-width: 40%;
+    background-image: linear-gradient(to left, #190a7c, #07085a);
+    border-radius: 20px;
+    padding: 36px 34px;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);
+
+}
+
+.texto h2 {
+    color: white;
+    margin-left: 20px;
+    margin-right: 40%;
+    font-size: 40px;
+    border-bottom: 5px black solid;
+}
+
+.texto p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin: 64px;
+}
+
+.products{
+    background-color: #06002E;
+
+    padding-bottom: 200px;
+}
+
+
+
+.SobreProdutos{
+
+    background-color: #06002E;
+    padding-bottom: 150px;
+}

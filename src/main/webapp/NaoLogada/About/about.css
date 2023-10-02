@@ -8,14 +8,9 @@
 
 .logo {
     position: absolute;
-    top: 50px; /* Ajuste a posição vertical conforme necessário */
-    left: 50px; /* Ajuste a posição horizontal conforme necessário */
+    top: 50px;
+    left: 50px;
 }
-
-/* Resto do seu CSS continua aqui */
-
-
-
 .topo img.fundo {
     margin-top: 150px;
     margin-left: 150px;

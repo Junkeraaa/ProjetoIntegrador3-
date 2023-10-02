@@ -21,11 +21,11 @@ public class LoginServlet extends HttpServlet {
         User user = loginDAO.loginUser(username, password);
 
         if (user != null) {
-            // Credenciais corretas, redirecionar para a página de boas-vindas ou dashboard
+
             System.out.println("Logado");
             resp.sendRedirect("logado.html");
         } else {
-            // Credenciais incorretas, exibir uma mensagem de erro no HTML+
+
             System.out.println("N logado");
             resp.sendRedirect("naologado.html");
         }

@@ -1,21 +1,17 @@
-.fundo {
+    .back {
     background-color: #06002E;
 }
 
-.logo {
-    margin-top: 32px;
-    margin-left: 16px;
+.head {
+    /*margin-top: 32px;
+    margin-left: 16px;*/
+    display: flex;
+    justify-content: space-around;
 }
 
-.opcoes {
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    width: 900px;
-    height: 600px;
-    background-color: #1e1e61;
-    border-radius: 5px;
-    overflow: hidden; 
+.fundo{
+    display: flex;
+    justify-content: center;
 }
 
 .botoes {

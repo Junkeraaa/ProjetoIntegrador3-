@@ -1,54 +1,37 @@
-.topo {
+.back {
     background-color: #06002E;
-    padding: 20px;
-    border-bottom: 5px black solid;
-    padding-bottom: 150px;
-    position: relative;
+}
+
+.head{
+    background-color: #06002E;
+    text-align: center;
+    padding: 20px 0;
 }
 
 .logo {
-    position: absolute;
-    top: 50px;
-    left: 50px;
+
+     position: absolute;
+     top: 8px;
+     left: 360px;
 }
-.topo img.fundo {
-    margin-top: 150px;
-    margin-left: 150px;
+
+.content{
+    background-color: #06002E;
+    padding: 100px;
 }
+
 
 .linhas {
     position: absolute;
-    top: 1400px;
-    right: 0;
-    margin-right:10px ;
+    padding-top: 150px;
+    padding-left: 520px;
 
 }
 
-.LearnMore {
-    display: inline-block;
-    margin-right: 20px;
-    position: relative;
-}
-.LearnMore :hover{
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
-
-.fundoSobre{
-    background-color: #06002E;
-    padding-bottom:6.5% ;
-    border-bottom: 5px black solid;
-
-
-}
-.fundoSobre img{
-    margin-top: 50px;
-    margin-bottom: 100px;
-    margin-left: 150px;
-}
 
 .texto {
+    position: relative;
+    padding-top: 100px;
     justify-content: center;
     margin: 0px 90px;
     max-width: 40%;
@@ -85,5 +68,5 @@
 .SobreProdutos{
 
     background-color: #06002E;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
 }

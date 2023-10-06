@@ -9,6 +9,17 @@ body {
     position: relative;
 }
 
+.head{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -22px;
+    left: 300px;
+    margin: 15px;
+
+
+}
+
 img {
     position: absolute;
     top: 20px;

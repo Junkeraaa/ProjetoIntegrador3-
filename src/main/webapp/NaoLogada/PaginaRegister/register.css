@@ -9,11 +9,15 @@ body {
     position: relative;
 }
 
-img {
+.head{
+    width: 100px;
+    height: 100px;
     position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 1;
+    top: -2px;
+    left: 270px;
+    margin: 10px;
+
+
 }
 
 .container {

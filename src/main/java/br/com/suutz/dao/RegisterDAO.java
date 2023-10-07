@@ -8,8 +8,8 @@ import java.sql.*;
 public class RegisterDAO {
 
     public boolean registerUserDAO(User user) {
-        String SQLCheckUser = "SELECT COUNT(*) FROM USUARIO WHERE login=?";
-        String SQLInsertUser = "INSERT INTO USUARIO (login, senha) VALUES (?, ?)";
+        String SQLCheckUser = "SELECT COUNT(*) FROM USUARIOS WHERE login=?";
+        String SQLInsertUser = "INSERT INTO USUARIOS (login, senha) VALUES (?, ?)";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");

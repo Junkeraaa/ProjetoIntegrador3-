@@ -14,7 +14,7 @@ public class ListUsers {
 
     public List<User> findAllUsers(){
 
-        String SQL = "SELECT * FROM USUARIO";
+        String SQL = "SELECT * FROM USUARIOS";
 
         try{
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");

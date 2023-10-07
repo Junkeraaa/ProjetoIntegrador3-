@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class LoginDAO {
     public User loginUser(String username, String password) {
-        String SQLLoginUser = "SELECT * FROM USUARIO WHERE login=? AND senha=?";
+        String SQLLoginUser = "SELECT * FROM USUARIOS WHERE login=? AND senha=?";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");

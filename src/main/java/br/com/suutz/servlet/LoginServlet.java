@@ -23,7 +23,8 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
 
             System.out.println("Logado");
-            resp.sendRedirect("logado.html");
+            resp.sendRedirect("../rendaFixa.html");
+
         } else {
 
             System.out.println("N logado");

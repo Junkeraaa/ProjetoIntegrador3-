@@ -3,8 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="naologado.css">
 </head>
 <body>
-<p>nao logado</p>
+
+<div class="head">
+    <a class="logo" href="../../index.html"><img src="../..\Imgs\LogoSuutz.png" alt=""></a>
+</div>
+
+
+
+<div class="container">
+
+
+    <div id="message" class="message" role="alert">
+        <strong>ATTENTION!</strong> Teste idsjdiasjdas
+        <button type="button" id="closeButton" class="close-button">X</button>
+    </div>
+
+
+
+    <h2>User Login</h2>
+    <form action="/login" method="post">
+        <label for="username">Login:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Logar</button>
+    </form>
+</div>
+
+<script>
+
+var messageDiv = document.getElementById('message');
+var closeButton = document.getElementById('closeButton');
+
+
+function closeMessage() {
+
+    messageDiv.remove();
+}
+
+
+closeButton.addEventListener('click', function() {
+    closeMessage();
+});
+
+
+setTimeout(closeMessage, 5000);
+
+
+</script>
+
+
 </body>
+
 </html>

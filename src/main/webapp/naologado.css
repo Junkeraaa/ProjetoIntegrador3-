@@ -8,22 +8,7 @@ body{
     background-color: #06002E;
     position: relative;
 }
-.message {
-    background-color: red;
-    color: rgb(82, 12, 12);
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    
-}
-
-.message strong {
-    margin-right: 10px;
-    font-size: 18px;
-}
-
-.close-button {
+#closeButton {
     background: none;
     border: #fff;
     cursor: pointer;
@@ -32,9 +17,19 @@ body{
     height: 5px;
     font-size: 10px;
     margin-right: 10px;
-    margin-left: 2px;
-    border-radius: 100px;
+    margin-left: -5px;
+
 }
+#message {
+    background-color: red;
+    color: rgb(82, 12, 12);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+
+}
+
 
 .head{
     width: 100px;

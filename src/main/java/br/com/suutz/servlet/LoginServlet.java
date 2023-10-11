@@ -22,17 +22,14 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
 
-            System.out.println("Logado");
+            System.out.println("Login Success");
             resp.sendRedirect("logado.html");
 
         } else {
 
-            System.out.println("N logado");
+            System.out.println("Login Falied");
             req.setAttribute("hasMessage", true);
             req.setAttribute("message", "Usuário ou senha incorretos");
-
-            System.out.println("hasMessage: " + req.getAttribute("hasMessage"));
-            System.out.println("message: " + req.getAttribute("message"));
 
             req.getRequestDispatcher("NaoLogada/Login/login.jsp").forward(req, resp);
 

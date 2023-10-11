@@ -15,11 +15,12 @@
 
  <div class="condicional">
 
-    <% Boolean hasMessage = (Boolean)request.getAttribute("hasMessage");
+    <% Boolean hasMessageUser = (Boolean)request.getAttribute("hasMessageUser");
+    Boolean hasMessagePassword = (Boolean)request.getAttribute("hasMessagePassword");
     String existUser = (String)request.getAttribute("existUser");
     String passwordMessage = (String)request.getAttribute("passwordMessage");
 
-   if (hasMessage != null && hasMessage) {
+   if (hasMessageUser != null && hasMessageUser) {
        %>
        <div id="message" class="message" role="alert">
        <!-- Usuário existente-->
@@ -27,7 +28,7 @@
            <button type="button" id="closeButton" class="close-button">X</button>
        </div>
        <%
-       } else if (hasMessage != null && hasMessage) {
+       } else if (hasMessagePassword != null && hasMessagePassword) {
        %>
        <!-- Senha menor que 6 caracteres -->
        <div id="message" class="message" role="alert">

@@ -26,22 +26,22 @@ public class RegisterCustomerServlet extends HttpServlet {
         int resultRegister = new RegisterDAO().registerUserDAO(user);
 
         if(resultRegister == 0){
-            //Login feito com sucesso
+
+            System.out.println("Register Success");
             req.getRequestDispatcher("index.html").forward(req, resp);
+
+
         }else if(resultRegister==1){
-            req.setAttribute("hasMessage", true);
+
+            req.setAttribute("hasMessageUser", true);
             req.setAttribute("existUser", "Usuário já existente");
 
-            System.out.println("hasMessage: " + req.getAttribute("hasMessage"));
-            System.out.println("message: " + req.getAttribute("existUser"));
-
             req.getRequestDispatcher("NaoLogada/PaginaRegister/register.jsp").forward(req, resp);
-        }else if(resultRegister==2){
-            req.setAttribute("hasMessage", true);
-            req.setAttribute("passwordMessage", "A senha tem que ter pelo menos 6 caracteres");
 
-            System.out.println("hasMessage: " + req.getAttribute("hasMessage"));
-            System.out.println("message: " + req.getAttribute("passwordMessage"));
+        }else if(resultRegister==2){
+
+            req.setAttribute("hasMessagePassword", true);
+            req.setAttribute("passwordMessage", "A senha tem que ter pelo menos 6 caracteres");
 
             req.getRequestDispatcher("NaoLogada/PaginaRegister/register.jsp").forward(req, resp);
         }

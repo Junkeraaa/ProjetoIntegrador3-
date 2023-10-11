@@ -8,42 +8,7 @@ body{
     background-color: #06002E;
     position: relative;
 }
-.message {
-    background-color: red;
-    color: rgb(82, 12, 12);
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-   display: inline-block;
-    
-}
-    
-.condicional{
-
-    margin-bottom: 100px;
-    
-}
-
-.container-full{
-
-    background-color: #06002E;
-    width: 600px;
-    height: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding-right: 40px;
-    text-align: center;
-}
-
-.message strong {
-    margin-right: 10px;
-    font-size: 18px;
-}
-
-.close-button {
+#closeButton {
     background: none;
     border: #fff;
     cursor: pointer;
@@ -52,9 +17,19 @@ body{
     height: 5px;
     font-size: 10px;
     margin-right: 10px;
-    margin-left: 2px;
-    border-radius: 100px;
+    margin-left: -5px;
+
 }
+#message {
+    background-color: red;
+    color: rgb(82, 12, 12);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+
+}
+
 
 .head{
     width: 100px;
@@ -74,10 +49,7 @@ img {
     z-index: 1;
 }
 
-
-
 .container {
-    position: relative;
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -86,7 +58,6 @@ img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding-right: 40px;
     text-align: center;
-
 }
 
 h2 {

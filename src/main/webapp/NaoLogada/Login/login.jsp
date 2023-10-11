@@ -3,7 +3,6 @@
 <head>
 
   <meta charset="UTF-8">
-  <meta charset="utf-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
@@ -15,25 +14,29 @@
     <a class="logo" href="../../index.html"><img src="../..\Imgs\LogoSuutz.png" alt=""></a>
 </div>
 
+    <div class="container-full">
+    <div class="condicional">
+
+    <% Boolean hasMessage = (Boolean)request.getAttribute("hasMessage");
+    String message = (String)request.getAttribute("message");
+
+    if (hasMessage != null && hasMessage) {
+    %>
+
+    <div id="message" class="message" role="alert">
+       <strong>ATTENTION!</strong> <%= message %>
+       <button type="button" id="closeButton" class="close-button">X</button>
+    </div>
+
+    <%
+    }
+    %>
+    
+</div>
 
 
    <div class="container">
-
-
-              <% Boolean hasMessage = (Boolean)request.getAttribute("hasMessage");
-              String message = (String)request.getAttribute("message");
-
-              if (hasMessage != null && hasMessage) {
-              %>
-
-              <div id="message" class="message" role="alert">
-                 <strong>ATTENTION!</strong> <%= message %>
-                 <button type="button" id="closeButton" class="close-button">X</button>
-              </div>
-
-              <%
-              }
-              %>
+             
 
 
        <h2>User Login</h2>
@@ -47,6 +50,8 @@
            <button type="submit">Logar</button>
        </form>
    </div>
+
+</div>
 
 <script>
 

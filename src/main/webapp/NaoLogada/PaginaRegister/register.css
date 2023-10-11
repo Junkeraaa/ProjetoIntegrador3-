@@ -1,4 +1,4 @@
-body {
+body{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,19 +8,70 @@ body {
     background-color: #06002E;
     position: relative;
 }
+.message {
+    background-color: red;
+    color: rgb(82, 12, 12);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    display: inline-block;
+
+}
+
+.container-full{
+
+    background-color: #06002E;
+    width: 600px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding-right: 40px;
+    text-align: center;
+}
+
+.message strong {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.close-button {
+    background: none;
+    border: #fff;
+    cursor: pointer;
+    color: inherit;
+    width: 5px;
+    height: 5px;
+    font-size: 10px;
+    margin-right: 10px;
+    margin-left: 2px;
+    border-radius: 100px;
+}
 
 .head{
     width: 100px;
     height: 100px;
     position: absolute;
-    top: -2px;
-    left: 270px;
-    margin: 10px;
+    top: -22px;
+    left: 300px;
+    margin: 15px;
 
 
 }
 
+img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+}
+
+
+
 .container {
+    position: relative;
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -28,6 +79,8 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding-right: 40px;
+    text-align: center;
+
 }
 
 h2 {

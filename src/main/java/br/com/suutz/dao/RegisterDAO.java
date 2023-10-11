@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class RegisterDAO {
 
-    public boolean registerUserDAO(User user) {
+    public int registerUserDAO(User user) {
         String SQLCheckUser = "SELECT COUNT(*) FROM USUARIOS WHERE login=?";
         String SQLInsertUser = "INSERT INTO USUARIOS (login, senha) VALUES (?, ?)";
 
@@ -22,21 +22,21 @@ public class RegisterDAO {
             int count = resultSet.getInt(1);
 
             if (count > 0) {
-                // Usuário já existe, não é possível registrar novamente
+                // Usuário já existe, não é possível registrar novamente(retorna int 1)
                 System.out.println("User already exists. Registration failed.");
                 connection.close();
-                return false;
+                return 1;
             }
 
 
-            // Verifique se a senha tem pelo menos 6 caracteres
+            // Verifique se a senha tem pelo menos 6 caracteres(retorna int 2)
             if (user.getPassword().length() < 6) {
                 System.out.println("Password must have at least 6 characters. Registration failed.");
                 connection.close();
-                return false;
+                return 2;
             }
 
-            // O usuário não existe e a senha tem pelo menos 6 caracteres, pode ser registrado
+            // O usuário não existe e a senha tem pelo menos 6 caracteres, pode ser registrado(retorna int 0)
             PreparedStatement preparedStatement = connection.prepareStatement(SQLInsertUser);
             preparedStatement.setString(1, user.getUser());
             preparedStatement.setString(2, user.getPassword());
@@ -45,10 +45,10 @@ public class RegisterDAO {
             System.out.println("Cadastrado com sucesso");
             connection.close();
 
-            return true; // Registro bem-sucedido
+            return 0; // Registro bem-sucedido
         } catch (Exception e) {
             System.out.println("Connection failed");
-            return false; // Registro falhou devido a erro de conexão
+            return 3; // Registro falhou devido a erro de conexão(retorna int 3)
         }
     }
 

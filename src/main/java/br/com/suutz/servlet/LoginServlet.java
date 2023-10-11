@@ -29,9 +29,6 @@ public class LoginServlet extends HttpServlet {
 
             System.out.println("N logado");
             req.setAttribute("hasMessage", true);
-
-            req.setAttribute("message", "User or password are incorrect!");
-
             req.setAttribute("message", "Usuário ou senha incorretos");
 
             System.out.println("hasMessage: " + req.getAttribute("hasMessage"));

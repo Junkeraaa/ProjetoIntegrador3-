@@ -1,7 +1,7 @@
 package br.com.suutz.servlet;
 
-import br.com.suutz.dao.LoginDAO;
-import br.com.suutz.model.User;
+import br.com.suutz.DAO.LoginDAO;
+import br.com.suutz.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

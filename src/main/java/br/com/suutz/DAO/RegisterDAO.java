@@ -1,6 +1,6 @@
-package br.com.suutz.dao;
+package br.com.suutz.DAO;
 
-import br.com.suutz.model.User;
+import br.com.suutz.entity.User;
 
 import java.sql.*;
 
@@ -21,34 +21,36 @@ public class RegisterDAO {
             resultSet.next();
             int count = resultSet.getInt(1);
 
+            // User already exists (return int 1)
             if (count > 0) {
-                // Usuário já existe, não é possível registrar novamente(retorna int 1)
                 System.out.println("User already exists. Registration failed.");
                 connection.close();
                 return 1;
             }
 
 
-            // Verifique se a senha tem pelo menos 6 caracteres(retorna int 2)
+            // Verify if password has less than 6 caracteres (return int 2)
             if (user.getPassword().length() < 6) {
                 System.out.println("Password must have at least 6 characters. Registration failed.");
                 connection.close();
                 return 2;
             }
 
-            // O usuário não existe e a senha tem pelo menos 6 caracteres, pode ser registrado(retorna int 0)
+            // User not registred and the password has more than 6 caracteres, successfully registered (return int 0)
             PreparedStatement preparedStatement = connection.prepareStatement(SQLInsertUser);
             preparedStatement.setString(1, user.getUser());
             preparedStatement.setString(2, user.getPassword());
             preparedStatement.execute();
 
-            System.out.println("Cadastrado com sucesso");
+            System.out.println("Successfully registered");
             connection.close();
 
-            return 0; // Registro bem-sucedido
+            return 0;
         } catch (Exception e) {
+            // Connection falied (return int 3)
+
             System.out.println("Connection failed");
-            return 3; // Registro falhou devido a erro de conexão(retorna int 3)
+            return 3;
         }
     }
 

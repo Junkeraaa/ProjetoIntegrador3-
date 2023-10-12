@@ -1,9 +1,4 @@
-package br.com.suutz.model;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
+package br.com.suutz.entity;
 
 class Investimento {
     private String nome;

@@ -1,7 +1,7 @@
 package br.com.suutz.servlet;
 
-import br.com.suutz.dao.RegisterDAO;
-import br.com.suutz.model.User;
+import br.com.suutz.DAO.RegisterDAO;
+import br.com.suutz.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/register")
-public class RegisterCustomerServlet extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

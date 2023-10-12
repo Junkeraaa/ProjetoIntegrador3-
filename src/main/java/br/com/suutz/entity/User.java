@@ -1,4 +1,4 @@
-package br.com.suutz.model;
+package br.com.suutz.entity;
 
 public class User {
 

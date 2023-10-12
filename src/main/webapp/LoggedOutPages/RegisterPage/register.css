@@ -8,6 +8,7 @@ body{
     background-color: #06002E;
     position: relative;
 }
+
 .message {
     background-color: red;
     color: rgb(82, 12, 12);
@@ -18,6 +19,7 @@ body{
     display: inline-block;
 
 }
+
 
 .container-full{
     background-color: #06002E;
@@ -35,6 +37,7 @@ body{
     margin-right: 10px;
     font-size: 18px;
 }
+
 
 .close-button {
     background: none;

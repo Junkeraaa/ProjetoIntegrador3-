@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registre-se</title>
-    <link rel="stylesheet" href="/NaoLogada/PaginaRegister/register.css">
+    <link rel="stylesheet" href="/LoggedOutPages/RegisterPage/register.css">
 </head>
 <body>
 
@@ -17,8 +17,10 @@
 
     <% Boolean hasMessageUser = (Boolean)request.getAttribute("hasMessageUser");
     Boolean hasMessagePassword = (Boolean)request.getAttribute("hasMessagePassword");
+    Boolean hasMessageFinal = (Boolean)request.getAttribute("hasMessageFinal");
     String existUser = (String)request.getAttribute("existUser");
     String passwordMessage = (String)request.getAttribute("passwordMessage");
+    String successMessage = (String)request.getAttribute("Success");
 
    if (hasMessageUser != null && hasMessageUser) {
        %>
@@ -36,9 +38,12 @@
                   <button type="button" id="closeButton" class="close-button">X</button>
               </div>
        <%
-       } else {
+       } else if(hasMessageFinal != null && hasMessageFinal){
        %>
-
+              <div id="message" class="message" role="alert">
+                  <strong>SUCCESS!</strong> <%= successMessage %>
+                  <button type="button" id="closeButton" class="close-button">X</button>
+              </div>
        <%
        }
        %>
@@ -81,6 +86,9 @@ closeButton.addEventListener('click', function() {
 
 setTimeout(closeMessage, 5000);
 
+setTimeout(function() {
+        window.location.href = 'index.html';
+    }, 5000);
 
 </script>
 

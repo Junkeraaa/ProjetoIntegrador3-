@@ -3,6 +3,8 @@ package br.com.suutz.servlet;
 import br.com.suutz.DAO.RegisterDAO;
 import br.com.suutz.entity.User;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +30,17 @@ public class RegisterServlet extends HttpServlet {
         if(resultRegister == 0){
 
             System.out.println("Register Success");
-            req.getRequestDispatcher("index.html").forward(req, resp);
+
+            req.setAttribute("hasMessageFinal" , true);
+            req.setAttribute("Success", "Cadastrado com sucesso!");
+            req.getRequestDispatcher("LoggedOutPages/RegisterPage/register.jsp").forward(req, resp);
+
+            //Will show a message that the register was a success and after 3 sec, will redirect to index.html
+
+            String redirectScript = "<script>setTimeout(function() { window.location.href = 'index.html'; }, 5000);</script>";
+            resp.getWriter().println(redirectScript);
+
+
 
 
         }else if(resultRegister==1){
@@ -36,14 +48,14 @@ public class RegisterServlet extends HttpServlet {
             req.setAttribute("hasMessageUser", true);
             req.setAttribute("existUser", "Usuário já existente");
 
-            req.getRequestDispatcher("NaoLogada/PaginaRegister/register.jsp").forward(req, resp);
+            req.getRequestDispatcher("LoggedOutPages/RegisterPage/register.jsp").forward(req, resp);
 
         }else if(resultRegister==2){
 
             req.setAttribute("hasMessagePassword", true);
             req.setAttribute("passwordMessage", "A senha tem que ter pelo menos 6 caracteres");
 
-            req.getRequestDispatcher("NaoLogada/PaginaRegister/register.jsp").forward(req, resp);
+            req.getRequestDispatcher("LoggedOutPages/RegisterPage/register.jsp").forward(req, resp);
         }
 
 }

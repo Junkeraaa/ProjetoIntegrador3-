@@ -6,7 +6,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
-  <link rel="stylesheet" href="/NaoLogada/Login/login.css">
+  <link rel="stylesheet" href="/LoggedOutPages/Login/login.css">
 </head>
 <body>
 

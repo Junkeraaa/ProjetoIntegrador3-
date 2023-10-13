@@ -1,6 +1,6 @@
-package br.com.suutz.dao;
+package br.com.suutz.DAO;
 
-import br.com.suutz.model.User;
+import br.com.suutz.entity.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

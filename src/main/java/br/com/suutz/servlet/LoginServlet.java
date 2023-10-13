@@ -1,7 +1,7 @@
 package br.com.suutz.servlet;
 
-import br.com.suutz.dao.LoginDAO;
-import br.com.suutz.model.User;
+import br.com.suutz.DAO.LoginDAO;
+import br.com.suutz.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,17 +22,14 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
 
-            System.out.println("Logado");
+            System.out.println("Login Success");
             resp.sendRedirect("logado.html");
 
         } else {
 
-            System.out.println("N logado");
+            System.out.println("Login Falied");
             req.setAttribute("hasMessage", true);
             req.setAttribute("message", "Usuário ou senha incorretos");
-
-            System.out.println("hasMessage: " + req.getAttribute("hasMessage"));
-            System.out.println("message: " + req.getAttribute("message"));
 
             req.getRequestDispatcher("NaoLogada/Login/login.jsp").forward(req, resp);
 

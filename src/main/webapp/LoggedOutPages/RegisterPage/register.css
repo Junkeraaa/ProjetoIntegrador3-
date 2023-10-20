@@ -20,6 +20,17 @@ body{
 
 }
 
+.messageSucess {
+    background-color: #32CD32;
+    color: #006400;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    display: inline-block;
+
+}
+
 
 .container-full{
     background-color: #06002E;
@@ -34,6 +45,11 @@ body{
 }
 
 .message strong {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.messageSucess strong {
     margin-right: 10px;
     font-size: 18px;
 }

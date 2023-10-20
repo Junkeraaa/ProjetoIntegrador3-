@@ -40,7 +40,7 @@
        <%
        } else if(hasMessageFinal != null && hasMessageFinal){
        %>
-              <div id="message" class="message" role="alert">
+              <div id="message" class="messageSucess" role="alert">
                   <strong>SUCCESS!</strong> <%= successMessage %>
                   <button type="button" id="closeButton" class="close-button">X</button>
               </div>

@@ -39,10 +39,10 @@
               </div>
        <%
        } else if(hasMessageFinal != null && hasMessageFinal){
-       %>
-              <div id="message" class="messageSucess" role="alert">
+           %>
+              <div id="messageSuccess" class="messageSuccess" role="alert">
                   <strong>SUCCESS!</strong> <%= successMessage %>
-                  <button type="button" id="closeButton" class="close-button">X</button>
+                  <button type="buttonSuccess" id="closeButtonSuccess" class="close-button">X</button>
               </div>
        <%
        }
@@ -69,28 +69,41 @@
 
 <script>
 
+var messageSuccessDiv = document.getElementById('messageSuccess');
 var messageDiv = document.getElementById('message');
-var closeButton = document.getElementById('closeButton');
 
+function closeMessageSuccess() {
+    messageSuccessDiv.remove();
+
+    setTimeout(function() {
+        window.location.href = 'index.html';
+    }, 3000);
+}
 
 function closeMessage() {
 
     messageDiv.remove();
+
+    }
+
+if (messageSuccessDiv) {
+    setTimeout(closeMessageSuccess, 3000);
 }
 
+if(messageDiv){
+    setTimeout(closeMessage, 3000);
 
-closeButton.addEventListener('click', function() {
-    closeMessage();
-});
+}
 
+var closeButtonSuccess = document.getElementById('closeButtonSuccess');
 
-setTimeout(closeMessage, 5000);
-
-setTimeout(function() {
-        window.location.href = 'index.html';
-    }, 5000);
-
+if (closeButtonSuccess) {
+    closeButtonSuccess.addEventListener('click', function() {
+        closeMessageSuccess();
+    });
+}
 </script>
+
 
 </body>
 </html>

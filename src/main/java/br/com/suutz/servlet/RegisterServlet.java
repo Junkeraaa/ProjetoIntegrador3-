@@ -37,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
 
             //Will show a message that the register was a success and after 3 sec, will redirect to index.html
 
-            String redirectScript = "<script>setTimeout(function() { window.location.href = 'index.html'; }, 5000);</script>";
+            String redirectScript = "<script>setTimeout(function() { window.location.href = 'index.html'; }, 3000);</script>";
             resp.getWriter().println(redirectScript);
 
 

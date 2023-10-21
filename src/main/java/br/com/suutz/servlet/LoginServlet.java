@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
 
             System.out.println("Login Success");
-            resp.sendRedirect("logado.html");
+            resp.sendRedirect("LoggedInPages/loggedSucess/loggedIn.html");
 
         } else {
 

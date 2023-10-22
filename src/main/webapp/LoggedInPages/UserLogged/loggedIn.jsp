@@ -13,27 +13,20 @@
         <a class="logo" href="../../index.html"><img src="../..\Imgs\LogoSuutz.png" alt=""></a>
        
     </header>
-
-
     <div class="corner-text">
 
 
         <%
-           String user = (String)request.getAttribute("user");
-           if (user != null) {
+            String user = (String)request.getAttribute("user");
         %>
-        <div id="username" class="username">
-            <%= user %>
+
+        <div id="user" class="user">
+           <%= user %>
         </div>
-        <%
-           }
-        %>
 
 
         <hr class="line">
     </div>
-
-
     </section>
 
 

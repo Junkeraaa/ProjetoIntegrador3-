@@ -1,0 +1,62 @@
+
+body{
+    background-color: #06002E;
+}
+
+/* header{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -22px;
+    left: 300px;
+    margin: 15px;
+
+
+} */
+
+.corner-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    color: aliceblue;
+    font-size: 40px;
+    font-family: 'Arial', 'Times New Roman', Times, serif;
+    
+}
+
+.line {
+    width: 160%;
+    border-top: 2px solid #000;
+    margin-left: -50%; 
+}
+
+.investments {
+    text-align: center; 
+    margin-top: 10%;
+}
+
+.meusAtivos {
+    display: inline-block; 
+    margin: 0 100px; 
+    padding: 0 10px; 
+    transition: transform 0.2s; 
+    position: relative; 
+}
+
+
+
+.meusAtivos img {
+    width: 400px; 
+    height: 400px; 
+}
+
+.meusAtivos:last-child {
+    border-right: none; 
+}
+
+.meusAtivos:hover {
+    transform: scale(1.2); 
+}
+
+

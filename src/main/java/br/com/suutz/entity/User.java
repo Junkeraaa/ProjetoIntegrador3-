@@ -9,6 +9,7 @@ public class User {
 
     private String user;
     private String password;
+    private double balance;
 
     public String getUser() {
         return user;
@@ -17,6 +18,14 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 }
 

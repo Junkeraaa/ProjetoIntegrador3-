@@ -23,7 +23,10 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
 
             System.out.println("Login Success");
-            resp.sendRedirect("LoggedInPages/loggedSucess/loggedIn.html");
+            req.setAttribute("user", user.getUser());
+
+            System.out.println("Nomeeeee "+req.getAttribute("user"));
+            resp.sendRedirect(req.getContextPath() + "/LoggedInPages/UserLogged/loggedIn.jsp");
 
         } else {
 
@@ -31,9 +34,10 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("hasMessage", true);
             req.setAttribute("message", "Usuário ou senha incorretos");
 
-            req.getRequestDispatcher("NaoLogada/Login/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/LoggedOutPages/Login/login.jsp").forward(req, resp);
 
         }
     }
+
 }
 

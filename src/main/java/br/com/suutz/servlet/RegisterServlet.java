@@ -3,8 +3,6 @@ package br.com.suutz.servlet;
 import br.com.suutz.DAO.RegisterDAO;
 import br.com.suutz.entity.User;
 
-import java.util.Timer;
-import java.util.TimerTask;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

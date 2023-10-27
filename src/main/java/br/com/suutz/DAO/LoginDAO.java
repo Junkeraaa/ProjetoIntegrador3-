@@ -23,7 +23,7 @@ public class LoginDAO {
 
             if (resultSet.next()) {
                 // Usuário encontrado, retornar informações do usuário
-                System.out.println("Encontrado");
+                System.out.println("Found");
                 String dbUsername = resultSet.getString("login");
                 String dbPassword = resultSet.getString("senha");
                 User user = new User(dbUsername, dbPassword);
@@ -31,7 +31,7 @@ public class LoginDAO {
                 return user;
             } else {
                 // Usuário não encontrado
-                System.out.println("N encontrado");
+                System.out.println("Not Found");
                 connection.close();
                 return null;
             }

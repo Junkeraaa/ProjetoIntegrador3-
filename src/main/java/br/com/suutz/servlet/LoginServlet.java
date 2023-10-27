@@ -23,10 +23,9 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
 
             System.out.println("Login Success");
-            req.setAttribute("user", user.getUser());
+            req.setAttribute("user", username);
 
-            System.out.println("Nomeeeee "+req.getAttribute("user"));
-            resp.sendRedirect(req.getContextPath() + "/LoggedInPages/UserLogged/loggedIn.jsp");
+            resp.sendRedirect(req.getContextPath() + "/LoggedInPages/loggedIn.jsp");
 
         } else {
 

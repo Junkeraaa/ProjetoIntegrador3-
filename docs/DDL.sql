@@ -2,7 +2,7 @@ CREATE TABLE USUARIOS (
 id INT AUTO_INCREMENT PRIMARY KEY,
 login VARCHAR(255) NOT NULL,
 senha VARCHAR(255) NOT NULL,
-balance DECIMAL(10,2) NOT NULL --Saldo do usuário
+balance DECIMAL(10,2) NOT NULL
 );
 
 --TB Renda variável

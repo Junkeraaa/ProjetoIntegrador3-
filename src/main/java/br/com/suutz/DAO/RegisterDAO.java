@@ -9,7 +9,7 @@ public class RegisterDAO {
 
     public int registerUserDAO(User user) {
         String SQLCheckUser = "SELECT COUNT(*) FROM USUARIOS WHERE login=?";
-        String SQLInsertUser = "INSERT INTO USUARIOS (login, senha) VALUES (?, ?)";
+        String SQLInsertUser = "INSERT INTO USUARIOS (login, senha, balance) VALUES (?, ?, 0)";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");

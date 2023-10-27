@@ -15,15 +15,7 @@
     </header>
     <div class="corner-text">
 
-
-        <%
-            String user = (String)request.getAttribute("user");
-        %>
-
-        <div id="user" class="user">
-           <%= user %>
-        </div>
-
+        <span>${sessionScope.user}</span>
 
         <hr class="line">
     </div>

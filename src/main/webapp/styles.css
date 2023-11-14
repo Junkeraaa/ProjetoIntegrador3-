@@ -3,12 +3,15 @@
 }
 
 .head {
-    display: flex;
-    justify-content: space-around;
+    position: relative;
+    top: 0%;
+    left: 15%;
 }
 
-.buttons{
-margin-top: 30px;
+.buttons {
+    position: relative;
+    top: 10%;
+    left: 60%;
 }
 
 
@@ -48,7 +51,7 @@ margin-top: 30px;
 }
 
 .register:hover {
-    background-color: #0074D9;
+    backgr15und-color: #0074D9;
     transform: scale(1.1);
 }
 
@@ -56,14 +59,10 @@ margin-top: 30px;
     display: flex;
     justify-content: center;
 }
-
 .LearnMore {
-    position: absolute;
-    bottom: 100px;
-    right: 100px;
-
-
-}
+    position: relative;
+    top: 600px;
+  }
 
 .LearnMore .textLearnMore{
 

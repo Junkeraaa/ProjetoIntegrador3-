@@ -32,13 +32,13 @@ VALUES
 
   INSERT INTO FIXED_INCOME (price, name, type, fee)
  VALUES 
- (100, 'CDB-ITAU', 'CDB', 10),
- (850, 'CDB-ITAU', 'CDB', 10),
- (500, 'CDB-ITAU', 'CDB', 10),
- (50, 'CDB-ITAU', 'CDB', 10),
- (70, 'CDB-ITAU', 'CDB', 10),
- (100, 'CDB-ITAU', 'CDB', 10),
- (150, 'CDB-ITAU', 'CDB', 10),
- (300, 'CDB-ITAU', 'CDB', 10),
- (500, 'CDB-ITAU', 'CDB', 10),
- (900, 'CDB-ITAU', 'CDB', 10);
+(200, 'Itaú ValorProtegidoCDB', 'CDB', 8.5),
+(150, 'Santander RendimentoSeguroLCA', 'LCA', 9.2),
+(300, 'Banco do Brasil GarantiaRendaCDB', 'CDB', 7.8),
+(500, 'Caixa PremiumDebenture', 'Debenture', 6.5),
+(800, 'BTG Pactual ConfiancaCRI', 'CRI', 10.5),
+(250, 'Banco Inter ValorResilienteLCI', 'LCI', 8.9),
+(4000, 'Original RendaConstanteLCA', 'LCA', 9.8),
+(600, 'Safra EstabilidadeCDB', 'CDB', 7.2),
+(700, 'Nubank RendimentoSolidoLCI', 'LCI', 9.5);
+

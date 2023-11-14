@@ -24,9 +24,9 @@
 
     <div class="investments">
 
-        <a href="" class="meusAtivos"><img src="../../Imgs/MeusAtivos.png" alt=""></a>
-        <a href="" class="meusAtivos"><img src="../../Imgs/RendaFixa.png" alt=""></a>
-        <a href="" class="meusAtivos"><img src="../../Imgs/RendaVariavel.png" alt=""></a>
+        <a href="MyAssets/myAssets.jsp" class="meusAtivos"><img src="../../Imgs/MeusAtivos.png" alt=""></a>
+        <a href="Incomes/incomes.jsp" class="meusAtivos"><img src="../../Imgs/RendaFixa.png" alt=""></a>
+        <a href="Stocks/stocks.jsp" class="meusAtivos"><img src="../../Imgs/RendaVariavel.png" alt=""></a>
 
     </div>
 

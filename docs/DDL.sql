@@ -1,3 +1,5 @@
+
+--TB Usuários
 CREATE TABLE USUARIOS (
 id INT AUTO_INCREMENT PRIMARY KEY,
 login VARCHAR(255) NOT NULL,
@@ -11,7 +13,7 @@ CREATE TABLE STOCKS (
     name_stock VARCHAR(255) NOT NULL,--nome da ação
     price_stock DECIMAL(10, 2) NOT NULL--preço/ação
 ); 
-
+--TB Ações Renda Variável do Cliente
 CREATE TABLE STOCKS_CLIENT (
    id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,  -- Chave estrangeira para a tabela de usuários
@@ -30,6 +32,7 @@ CREATE TABLE FIXED_INCOME (
     fee DECIMAL(5, 2) NOT NULL--taxa
 );
 
+--TB Papéis Renda Fixa do Cliente
 CREATE TABLE FIXED_INCOME_CLIENT (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,  -- Chave estrangeira para a tabela de usuários

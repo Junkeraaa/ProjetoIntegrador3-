@@ -1,13 +1,6 @@
 -- Arquivo de migration para popular o banco
 
-CREATE TABLE FIXED_INCOME (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    price DECIMAL(5, 2) NOT NULL, --peço ação
-    name VARCHAR(255) NOT NULL,--nome
-    type VARCHAR(255) NOT NULL,--tipo
-    fee DECIMAL(5, 2) NOT NULL--taxa
-);
-
+--POPULANDO COM A INSERÇÃO DE 3 DADOS DENTRO DA TB USUARIOS
 INSERT INTO USUARIOS (login, senha, balance)
 VALUES
  ('Lucas123', 'Lucas1211', 0),
@@ -17,6 +10,7 @@ VALUES
  ('Pedro123', 'Pedro123', 0),
  ('Kaick123', 'Kaick123', 0);
 
+--POPULANDO COM A INSERÇÃO DE 2 DADOS DENTRO DA TB STOCKS
  INSERT INTO STOCKS (name_stock, price_stock)
  VALUES
  ('APPL4', 83.2),
@@ -30,6 +24,8 @@ VALUES
  ('GGPS3', 95.8),
  ('TASA4', 22.22);
 
+
+--POPULANDO COM A INSERÇÃO DE 4 DADOS DENTRO DA TB FIXED_INCOME
   INSERT INTO FIXED_INCOME (price, name, type, fee)
  VALUES 
 (200, 'Itaú ValorProtegidoCDB', 'CDB', 8.5),
@@ -41,4 +37,6 @@ VALUES
 (4000, 'Original RendaConstanteLCA', 'LCA', 9.8),
 (600, 'Safra EstabilidadeCDB', 'CDB', 7.2),
 (700, 'Nubank RendimentoSolidoLCI', 'LCI', 9.5);
+
+
 

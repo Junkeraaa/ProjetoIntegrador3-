@@ -1,10 +1,14 @@
+package br.com.suutz.DAO;
+
 import java.sql.*;
 import java.util.ArrayList;
 
+import br.com.suutz.entity.FixedIncome;
+
 public class FixedIncomeDAO {
 
-    public FixedIncome getIncomesByName(String incomeName) {
-        FixedIncome fixedIncome = new FixedIncome();
+    public FixedIncome getFixedIncomesByName(String incomeName) {
+        FixedIncome fixedIncomeSpecific = new FixedIncome();
 
         String SQLSelectFixedIncome = "SELECT * FROM FIXED_INCOME WHERE name = ?";
 
@@ -17,13 +21,15 @@ public class FixedIncomeDAO {
             ResultSet resultSet = fixedIncomeStatement.executeQuery();
 
             if (resultSet.next()) {
-                fixedIncome = new FixedIncome(
-                        resultSet.getInt("id"),
-                        resultSet.getString("name"),
-                        resultSet.getBigDecimal("price"),
-                        resultSet.getString("type"),
-                        resultSet.getBigDecimal("fee")
-                );
+               FixedIncome fixedIncome = new FixedIncome();
+
+                       fixedIncome.setId(resultSet.getInt("id"));
+                        fixedIncome.setName(resultSet.getString("name"));
+                        fixedIncome.setPrice(resultSet.getDouble("price"));
+                        fixedIncome.setType(resultSet.getString("type"));
+                        fixedIncome.setFee(resultSet.getDouble("fee"));
+                
+                fixedIncomeSpecific = fixedIncome;
             }
 
             resultSet.close();
@@ -34,7 +40,7 @@ public class FixedIncomeDAO {
             e.printStackTrace();
         }
 
-        return fixedIncome;
+        return fixedIncomeSpecific;
     }//getIncomesByName
     
 
@@ -52,13 +58,13 @@ public ArrayList<FixedIncome> getIncomes() {
         ResultSet resultSet = fixedIncomeStatement.executeQuery();
 
         while (resultSet.next()) {
-            FixedIncome fixedIncome = new FixedIncome(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name"),
-                    resultSet.getBigDecimal("price"),
-                    resultSet.getString("type"),
-                    resultSet.getBigDecimal("fee")
-            );
+            FixedIncome fixedIncome = new FixedIncome();
+
+                       fixedIncome.setId(resultSet.getInt("id"));
+                        fixedIncome.setName(resultSet.getString("name"));
+                        fixedIncome.setPrice(resultSet.getDouble("price"));
+                        fixedIncome.setType(resultSet.getString("type"));
+                        fixedIncome.setFee(resultSet.getDouble("fee"));
 
             fixedIncomeList.add(fixedIncome);
         }

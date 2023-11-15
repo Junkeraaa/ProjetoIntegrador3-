@@ -1,12 +1,13 @@
 package br.com.suutz.entity;
 
-public class Stock implements StockInterface {
+public class Stock {
 
     private int id;
     private String name_stock;
     private double price_stock;
 
     public Stock() {
+      
     }
 
     public int getID() {
@@ -19,6 +20,18 @@ public class Stock implements StockInterface {
 
     public double getPriceStock() {
         return price_stock;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setNameStock(String name_stock){
+        this.name_stock = name_stock;
+    }
+
+    public void setPriceStock(double price_stock){
+        this.price_stock = price_stock;
     }
 }
 

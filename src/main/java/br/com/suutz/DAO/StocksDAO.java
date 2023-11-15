@@ -3,37 +3,72 @@ import java.util.ArrayList;
 
 public class StocksDAO {
 
-    public ArrayList<Stock> getStocksByName(String stockName) {
-        ArrayList<Stock> stocksList = new ArrayList<>();
+    public Stock getStockByName(String stockName) {
 
-        String SQLSelectStock = "SELECT * FROM STOCKS WHERE name_stock = ?";
+    Stock stock = new Stock();
 
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-            System.out.println("Connection Success");
+    String SQLSelectStock = "SELECT * FROM STOCKS WHERE name_stock = ?";
 
-            PreparedStatement stockStatement = connection.prepareStatement(SQLSelectStock);
-            stockStatement.setString(1, stockName);
-            ResultSet resultSet = stockStatement.executeQuery();
+    try {
+        Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+        System.out.println("Connection Success");
 
-            while (resultSet.next()) {
-                Stocks stocks = new Stocks(
-                        resultSet.getInt("id"),
-                        resultSet.getString("name_stock"),
-                        resultSet.getBigDecimal("price_stock")
-                );
+        PreparedStatement stockStatement = connection.prepareStatement(SQLSelectStock);
+        stockStatement.setString(1, stockName);
+        ResultSet resultSet = stockStatement.executeQuery();
 
-                stocksList.add(stock);
-            }
-
-            resultSet.close();
-            stockStatement.close();
-            connection.close();
-        } catch (SQLException e) {
-            System.out.println("Connection Failed");
-            e.printStackTrace();
+        if (resultSet.next()) {
+            stock = new Stock(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name_stock"),
+                    resultSet.getBigDecimal("price_stock")
+            );
         }
 
-        return stocksList;
+        resultSet.close();
+        stockStatement.close();
+        connection.close();
+    } catch (SQLException e) {
+        System.out.println("Connection Failed");
+        e.printStackTrace();
     }
+
+    return stock;
+}
+
+
+
+   public ArrayList<Stock> getStocks() {
+    ArrayList<Stock> stocksList = new ArrayList<>();
+
+    String SQLSelectStock = "SELECT * FROM STOCKS";
+
+    try {
+        Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+        System.out.println("Connection Success");
+
+        PreparedStatement stockStatement = connection.prepareStatement(SQLSelectStock);
+        ResultSet resultSet = stockStatement.executeQuery();
+
+        while (resultSet.next()) {
+            Stock stock = new Stock(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name_stock"),
+                    resultSet.getBigDecimal("price_stock")
+            );
+
+            stocksList.add(stock);
+        }
+
+        resultSet.close();
+        stockStatement.close();
+        connection.close();
+    } catch (SQLException e) {
+        System.out.println("Connection Failed");
+        e.printStackTrace();
+    }
+
+    return stocksList;
+}
+
 }

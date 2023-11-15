@@ -1,10 +1,8 @@
+package br.com.suutz.DAO;
+
     import java.sql.*;
     import java.util.ArrayList;
-
-    import java.sql.*;
-
-import java.sql.*;
-import java.math.BigDecimal;
+    import java.math.BigDecimal;
 
 public class UsuarioDAO {
 

@@ -1,11 +1,15 @@
+package br.com.suutz.DAO;
+
 import java.sql.*;
 import java.util.ArrayList;
+
+import br.com.suutz.entity.Stock;
 
 public class StocksDAO {
 
     public Stock getStockByName(String stockName) {
 
-    Stock stock = new Stock();
+        Stock stock = new Stock();
 
     String SQLSelectStock = "SELECT * FROM STOCKS WHERE name_stock = ?";
 
@@ -18,11 +22,12 @@ public class StocksDAO {
         ResultSet resultSet = stockStatement.executeQuery();
 
         if (resultSet.next()) {
-            stock = new Stock(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name_stock"),
-                    resultSet.getBigDecimal("price_stock")
-            );
+        Stock stockSpecific = new Stock();
+            stockSpecific.setId(resultSet.getInt("id"));
+            stockSpecific.setNameStock(resultSet.getString("name_stock"));
+            stockSpecific.setPriceStock(resultSet.getDouble("price_stock"));
+
+            stock = stockSpecific;
         }
 
         resultSet.close();
@@ -51,13 +56,12 @@ public class StocksDAO {
         ResultSet resultSet = stockStatement.executeQuery();
 
         while (resultSet.next()) {
-            Stock stock = new Stock(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name_stock"),
-                    resultSet.getBigDecimal("price_stock")
-            );
+            Stock stockSpecific = new Stock();
+            stockSpecific.setId(resultSet.getInt("id"));
+            stockSpecific.setNameStock(resultSet.getString("name_stock"));
+            stockSpecific.setPriceStock(resultSet.getDouble("price_stock"));
 
-            stocksList.add(stock);
+            stocksList.add(stockSpecific);
         }
 
         resultSet.close();

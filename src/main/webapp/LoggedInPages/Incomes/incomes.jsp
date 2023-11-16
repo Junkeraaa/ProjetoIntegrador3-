@@ -22,7 +22,7 @@
     <hr class="line">
 
     <div class="corner-text">
-        Lucas123 | Saldo: 0.00
+        <span>${sessionScope.user}</span> | Saldo: 0.00
 
         <hr class="line-corner">
     </div>

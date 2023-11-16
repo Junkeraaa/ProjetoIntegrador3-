@@ -8,41 +8,53 @@
 <body>
 
     <section class="head">
-        
-    <header>
-        
-        <a class="logo" href="../loggedIn.jsp"><img src="../..\Imgs\LogoSuutz.png" alt=""></a>
-       
-        
-
-    </header>
+        <header>
+            <a class="logo" href="../loggedIn.jsp"><img src="../..\Imgs\LogoSuutz.png" alt=""></a>
+        </header>
     
-    <div class="textAsset">Meus Ativos</div>
+        <div class="textAsset">Meus Ativos</div>
     
-    <hr class="line">
+        <hr class="line">
+    
+        <div class="corner-text">
+            <span>${sessionScope.user}</span> | Saldo:  <span>${sessionScope.saldo}</span>
+            <a class="updateBalanceLink" href="#">
+                <img src="../..\Imgs\Mais.png" alt="">
+                <div class="conteiner-plus">
 
-    <div class="corner-text">
-        Lucas123 | Saldo: 0.00
+                    <div id="updateBalanceForm" style="display: none;">
+                        <form action="/UpdateBalanceServlet" method="post">
+                            <input type="number" id="newBalance" name="newBalance" required>
+                            <button type="submit">Atualizar Saldo</button>
+                        </form>
+                    </div>
+                    
 
-        <hr class="line-corner">
-    </div>
+                </div>
+            </a>
+        </div>
     </section>
-<div class="conteiners">
-    <div class="conteiner-left">
-
-        Mensagem teste
+    
+    <div class="conteiners">
+        <div class="conteiner-left">Mensagem teste</div>
+        <div class="conteiner-right">Mensagem teste</div>
+    </div>
+    
+    
+    
+    
+    <script>
+        const updateBalanceLink = document.querySelector('.updateBalanceLink');
+        const updateBalanceForm = document.getElementById('updateBalanceForm');
         
-        </div>
-
-        <div class="conteiner-right">
-            Mensagem teste
-        </div>
+        updateBalanceLink.addEventListener('click', () => {
+            updateBalanceForm.style.display = 'block';
+            updateBalanceForm.style.transform = 'translateY(0)';
+            updateBalanceForm.style.transition = 'transform 0.5s ease-in-out';
+        });
         
-</div>
-
-  
-  
-
+    </script>
 
 </body>
 </html>
+

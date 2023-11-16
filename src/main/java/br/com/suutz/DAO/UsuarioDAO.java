@@ -9,7 +9,7 @@ import javax.sound.midi.Soundbank;
 
 public class UsuarioDAO {
 
-    public double selectUserBalance(String username){
+    public static double selectUserBalance(String username){
         String selectBalance=  "SELECT * FROM USUARIOS WHERE login = ?";
         double userBalance = 0.0;
         try {
@@ -39,8 +39,8 @@ public class UsuarioDAO {
 
 
 
-    public void updateBalance(String username, double newBalance) {
-        // Em seguida, faça a atualização com o ID do usuário
+    public static void updateBalance(String username, double newBalance) {
+        
         String updateBalanceSQL = "UPDATE USUARIOS SET balance = ? WHERE login = ?";
 
 

@@ -7,7 +7,7 @@ import br.com.suutz.entity.FixedIncome;
 
 public class FixedIncomeDAO {
 
-    public FixedIncome getFixedIncomesByName(String incomeName) {
+    public static FixedIncome getFixedIncomesByName(String incomeName) {
         FixedIncome fixedIncomeSpecific = new FixedIncome();
 
         String SQLSelectFixedIncome = "SELECT * FROM FIXED_INCOME WHERE name = ?";
@@ -45,7 +45,7 @@ public class FixedIncomeDAO {
     
 
 
-public ArrayList<FixedIncome> getIncomes() {
+public static ArrayList<FixedIncome> getIncomes() {
     ArrayList<FixedIncome> fixedIncomeList = new ArrayList<>();
 
     String SQLSelectFixedIncome = "SELECT * FROM FIXED_INCOME";

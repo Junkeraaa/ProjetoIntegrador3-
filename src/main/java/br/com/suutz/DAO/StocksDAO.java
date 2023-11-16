@@ -2,12 +2,40 @@ package br.com.suutz.DAO;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.Random;
 
 import br.com.suutz.entity.Stock;
 
 public class StocksDAO {
 
-    public Stock getStockByName(String stockName) {
+    public static void updateStockValue(int id, double value){
+
+
+        String updateValueSQL = "UPDATE STOCKS price_stock = ? WHERE id = ?";
+
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa")){
+
+            PreparedStatement updateValueStatement  = connection.prepareStatement(updateValueSQL);
+
+            updateValueStatement.setDouble(1, value);
+            updateValueStatement.setInt(2, id);
+
+            int rowsAffected = updateValueStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Balance updated successfully.");
+            } else {
+                System.out.println("User not found or balance not updated.");
+            }//ifelse
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    public static Stock getStockByName(String stockName) {
 
         Stock stock = new Stock();
 
@@ -43,7 +71,7 @@ public class StocksDAO {
 
 
 
-   public ArrayList<Stock> getStocks() {
+   public static ArrayList<Stock> getStocks() {
     ArrayList<Stock> stocksList = new ArrayList<>();
 
     String SQLSelectStock = "SELECT * FROM STOCKS";

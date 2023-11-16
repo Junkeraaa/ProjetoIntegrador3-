@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginDAO {
-    public User loginUser(String username, String password) {
+    public static User loginUser(String username, String password) {
         String SQLLoginUser = "SELECT * FROM USUARIOS WHERE login=? AND senha=?";
 
         try {

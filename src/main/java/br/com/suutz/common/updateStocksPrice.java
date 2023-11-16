@@ -11,7 +11,7 @@ public class updateStocksPrice {
 
         for(Stock stock : listOfStocks){
             
-            StocksDao.updateStockValue(stock.getID(), utils.returnNewPrice(stock.getPriceStock()));
+            StocksDAO.updateStockValue(stock.getID(), utils.returnNewPrice(stock.getPriceStock()));
             
         }
 

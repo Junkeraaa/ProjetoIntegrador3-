@@ -2,14 +2,26 @@ package br.com.suutz.entity;
 
 public class User {
 
-    public User(String user, String password) {
+    private int id;
+    private  String user;
+    private String password;
+    private double balance;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setUser(String user) {
         this.user = user;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    private String user;
-    private String password;
-    private double balance;
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUser() {
         return user;

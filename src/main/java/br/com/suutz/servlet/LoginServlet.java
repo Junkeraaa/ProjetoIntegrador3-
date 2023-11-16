@@ -1,6 +1,8 @@
 package br.com.suutz.servlet;
 
 import br.com.suutz.DAO.LoginDAO;
+import br.com.suutz.DAO.UsuarioDAO;
+import br.com.suutz.common.GlobalData;
 import br.com.suutz.entity.User;
 
 import javax.servlet.ServletException;
@@ -10,22 +12,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+    User user;
+    String username;
+    String password;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
+         username = req.getParameter("username");
+         password = req.getParameter("password");
 
         LoginDAO loginDAO = new LoginDAO();
-        User user = loginDAO.loginUser(username, password);
+        user = loginDAO.loginUser(username, password);
 
         if (user != null) {
 
             System.out.println("Login Success");
 
-            req.getSession().setAttribute("user",user.getUser());
-//            req.setAttribute("user", user.getUser());
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            double currentBalance = usuarioDAO.selectUserBalance(username);
+            req.getSession().setAttribute("saldo", currentBalance);
+
+            req.getSession().setAttribute("user", user.getUser());
 
             resp.sendRedirect(req.getContextPath() + "/LoggedInPages/loggedIn.jsp");
 
@@ -38,7 +47,9 @@ public class LoginServlet extends HttpServlet {
             req.getRequestDispatcher("/LoggedOutPages/Login/login.jsp").forward(req, resp);
 
         }
+
     }
 
 }
+
 

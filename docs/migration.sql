@@ -34,7 +34,7 @@ VALUES
 (500, 'Caixa PremiumDebenture', 'Debenture', 6.5),
 (800, 'BTG Pactual ConfiancaCRI', 'CRI', 10.5),
 (250, 'Banco Inter ValorResilienteLCI', 'LCI', 8.9),
-(4000, 'Original RendaConstanteLCA', 'LCA', 9.8),
+(400, 'Original RendaConstanteLCA', 'LCA', 9.8),
 (600, 'Safra EstabilidadeCDB', 'CDB', 7.2),
 (700, 'Nubank RendimentoSolidoLCI', 'LCI', 9.5);
 

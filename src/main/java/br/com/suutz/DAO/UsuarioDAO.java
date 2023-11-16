@@ -2,11 +2,6 @@ package br.com.suutz.DAO;
 
 import java.sql.*;
 
-import br.com.suutz.common.GlobalData;
-import br.com.suutz.entity.User;
-
-import javax.sound.midi.Soundbank;
-
 public class UsuarioDAO {
 
     public static double selectUserBalance(String username){

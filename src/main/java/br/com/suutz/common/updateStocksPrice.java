@@ -8,6 +8,8 @@ import br.com.suutz.entity.Stock;
 public class updateStocksPrice {
 
      public static void updateStocksPriceFunction(){
+        System.out.println("Atualizando valores das ações!");
+
         ArrayList<Stock> listOfStocks = new ArrayList<Stock>();
 
         listOfStocks = StocksDAO.getStocks();

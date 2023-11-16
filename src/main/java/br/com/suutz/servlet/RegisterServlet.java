@@ -25,7 +25,8 @@ public class RegisterServlet extends HttpServlet {
         user.setUser(username);
         user.setPassword(password);
 
-        int resultRegister = new RegisterDAO().registerUserDAO(user);
+        new RegisterDAO();
+		int resultRegister = RegisterDAO.registerUserDAO(user);
 
         if(resultRegister == 0){
 

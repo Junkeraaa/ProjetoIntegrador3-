@@ -2,8 +2,6 @@ package br.com.suutz.DAO;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.Random;
 
 import br.com.suutz.entity.Stock;
 

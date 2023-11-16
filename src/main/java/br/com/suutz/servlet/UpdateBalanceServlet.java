@@ -17,22 +17,17 @@ public class UpdateBalanceServlet extends HttpServlet {
 
 
 
-        // Obtenha o usuário da sessão
+       
         System.out.println("USUARIO:  "+ GlobalData.userLogged.getUser());
 
-        String a = GlobalData.userLogged.getUser();
-
-
         if (GlobalData.userLogged != null) {
-            // Obtenha os parâmetros do formulário
+            
             double newBalance = Double.parseDouble(req.getParameter("newBalance"));
 
-            // Crie uma instância de UsuarioDAO e chame o método de atualização de saldo
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.selectUserBalance(GlobalData.userLogged.getUser());//Alterar método para que já dê um set e atualize no front
-            usuarioDAO.updateBalance(GlobalData.userLogged.getUser(), newBalance);
+            UsuarioDAO.selectUserBalance(GlobalData.userLogged.getUser());
+            UsuarioDAO.updateBalance(GlobalData.userLogged.getUser(), newBalance);
 
-            // Atualize o saldo na sessão
+            
             req.getSession().setAttribute("saldo", newBalance);
 
             resp.sendRedirect(req.getContextPath() + "/LoggedInPages/MyAssets/myAssets.jsp");

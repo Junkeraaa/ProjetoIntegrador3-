@@ -1,6 +1,10 @@
 package br.com.suutz.common;
 
+import java.io.IOException;
 import java.util.Random;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class utils {
 
@@ -8,7 +12,7 @@ public class utils {
 
         Random random = new Random();
         return random.nextBoolean();
-        
+
     }
 
     public static double returnNewPrice(double price){
@@ -18,5 +22,13 @@ public class utils {
         } else {
             return price-priceToAdd;
         }
+    }
+
+    public static void sendPageLoginDao(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    resp.sendRedirect(req.getContextPath() + "/LoggedInPages/loggedIn.jsp");
+    }
+
+    public static void reloadStocks(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    resp.sendRedirect(req.getContextPath() + "/LoggedInPages/Stocks/stocks.jsp");
     }
 }

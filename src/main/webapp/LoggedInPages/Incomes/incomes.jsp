@@ -22,10 +22,9 @@
     <hr class="line">
 
     <div class="corner-text">
-        <span>${sessionScope.user}</span> | Saldo: 0.00
-
-        <hr class="line-corner">
+        <span>${sessionScope.user}</span> | Saldo:  <span>${sessionScope.saldo}</span>
     </div>
+    
     </section>
 <div class="conteiners">
     
@@ -68,7 +67,17 @@
 </div>
 
 
-
+<script>
+    const updateBalanceLink = document.querySelector('.updateBalanceLink');
+    const updateBalanceForm = document.getElementById('updateBalanceForm');
+    
+    updateBalanceLink.addEventListener('click', () => {
+        updateBalanceForm.style.display = 'block';
+        updateBalanceForm.style.transform = 'translateY(0)';
+        updateBalanceForm.style.transition = 'transform 0.5s ease-in-out';
+    });
+    
+</script>
 
 
 </body>

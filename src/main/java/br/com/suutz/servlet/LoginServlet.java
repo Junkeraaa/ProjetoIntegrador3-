@@ -30,6 +30,10 @@ public class LoginServlet extends HttpServlet {
 
             System.out.println("Login Success");
 
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            double currentBalance = usuarioDAO.selectUserBalance(username);
+            req.getSession().setAttribute("saldo", currentBalance);
+
             req.getSession().setAttribute("user", user.getUser());
 
             resp.sendRedirect(req.getContextPath() + "/LoggedInPages/loggedIn.jsp");

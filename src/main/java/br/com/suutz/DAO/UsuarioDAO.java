@@ -2,6 +2,7 @@ package br.com.suutz.DAO;
 
 import java.sql.*;
 
+import br.com.suutz.common.GlobalData;
 import br.com.suutz.entity.User;
 
 import javax.sound.midi.Soundbank;

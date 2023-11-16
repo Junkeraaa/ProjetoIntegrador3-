@@ -12,7 +12,7 @@ public class StocksDAO {
     public static void updateStockValue(int id, double value){
 
 
-        String updateValueSQL = "UPDATE STOCKS price_stock = ? WHERE id = ?";
+        String updateValueSQL = "UPDATE STOCKS SET price_stock = ? WHERE id = ?";
 
         try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa")){
 

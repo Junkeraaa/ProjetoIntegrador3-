@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class RegisterDAO {
 
-    public int registerUserDAO(User user) {
+    public static int registerUserDAO(User user) {
         String SQLCheckUser = "SELECT COUNT(*) FROM USUARIOS WHERE login=?";
         String SQLInsertUser = "INSERT INTO USUARIOS (login, senha, balance) VALUES (?, ?, 0)";
 

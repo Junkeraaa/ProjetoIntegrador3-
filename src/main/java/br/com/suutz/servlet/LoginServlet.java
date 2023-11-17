@@ -26,6 +26,8 @@ public class LoginServlet extends HttpServlet {
     private User user;
     private String username;
     private String password;
+    int i = 0;
+    ArrayList<Stock> stocksList;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,11 +48,13 @@ public class LoginServlet extends HttpServlet {
             // Redirect to the loggedIn.jsp page
             utils.sendPageLoginDao(req, resp);
 
-            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3);
 
             scheduler.scheduleAtFixedRate(() -> {
-                System.out.println("Entrou na bunda");
                 updateStocksPrice.updateStocksPriceFunction();
+//                HttpServletRequest request = (HttpServletRequest) req.getSession().getAttribute("request");
+                req.getSession().setAttribute("stocksList", stocksList);
                 setStocksData(req);
             }, 0, 2, TimeUnit.SECONDS);
         } else {
@@ -62,17 +66,16 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    public void setStocksData(HttpServletRequest req){
+    public void setStocksData(HttpServletRequest req) {
+        i++;
+        System.out.println("teste" + i);
 
-       
-        ArrayList<Stock> stocksList = StocksDAO.getStocks();
-       
-            // Set stocksList as a request attribute
-            req.getSession().setAttribute("stocksList", stocksList);
-     
-            for(Stock a : stocksList){
-                System.out.println("banan");
-                System.out.println(a.getPriceStock() + "///");
-            }
+        stocksList = StocksDAO.getStocks();
+        System.out.println("pora");
+
+        for (Stock a : stocksList) {
+            System.out.println("banan");
+            System.out.println(a.getPriceStock() + "///");
+        }
     }
 }

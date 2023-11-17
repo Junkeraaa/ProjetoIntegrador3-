@@ -4,6 +4,8 @@ import java.sql.*;
 
 public class UsuarioDAO {
 
+
+
     public static double selectUserBalance(String username){
         String selectBalance=  "SELECT * FROM USUARIOS WHERE login = ?";
         double userBalance = 0.0;
@@ -17,8 +19,6 @@ public class UsuarioDAO {
 
             if(resultSet.next()){
                 userBalance = resultSet.getDouble("balance");
-
-                System.out.println("Balance:" + userBalance);
             }
 
 
@@ -56,7 +56,7 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             System.out.println("Connection Failed");
             e.printStackTrace();
-        }//cachj
+        }//cach
     }//updateBalance
 
 

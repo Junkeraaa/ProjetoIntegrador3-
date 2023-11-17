@@ -8,6 +8,109 @@ import br.com.suutz.entity.StockClient;
 
 public class StocksDAO {
 
+
+    private static void newStockOrder(String username){
+
+        String getUsernameSQL = "SELECT * FROM USUARIOS WHERE login = ?";
+        double getUserBalance = 0.0;
+        double getStockPrice = 0.0;
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            PreparedStatement userStatement = connection.prepareStatement(getUsernameSQL);
+            userStatement.setString(1, "login");
+            ResultSet resultSet = userStatement.executeQuery();
+
+            if(resultSet.next()){
+                //localizou usuario
+
+                username = resultSet.getString("login");
+                getUserBalance = UsuarioDAO.selectUserBalance(username);
+                getStockPrice = getStockPrice(getStockId(username));
+
+               boolean hasBalance = getUserBalance > getStockPrice;
+
+               if(hasBalance){
+
+                    //insert
+
+               }
+
+
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+
+    }//newOrder
+
+    private static void insertStockToUser(){
+
+        String insertStockSQL = "INSERT INTO STOCKS_CLIENT (user_id,stock_id) VALUES =(?, ?)";
+
+        
+
+    }
+
+
+
+
+    private static int getStockId(String stockName) {
+
+        String getStockIdSQL = "SELECT * FROM STOCKS WHERE name_stock = ?";
+        int stockId = 0;
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            PreparedStatement stockIdStatement = connection.prepareStatement(getStockIdSQL);
+            stockIdStatement.setString(1, stockName);
+            ResultSet resultSet = stockIdStatement.executeQuery();
+
+            if (resultSet.next()) {
+                stockId = resultSet.getInt("name_stock");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return stockId;
+    }
+
+
+
+    private static double getStockPrice(int stockID){
+
+        String selectPriceSQL = "SELECT * FROM STOCKS WHERE id = ?";
+        double price = 0.0;
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            PreparedStatement selectPriceStatement = connection.prepareStatement(selectPriceSQL);
+            selectPriceStatement.setInt(1, stockID);
+            ResultSet resultSet = selectPriceStatement.executeQuery();
+
+            if(resultSet.next()){
+
+                price = resultSet.getDouble("price_stock");
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }//catch
+
+
+        return price;
+    }
     public static void updateStockValue(int id, double value){
 
 

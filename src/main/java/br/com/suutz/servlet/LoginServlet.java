@@ -29,8 +29,9 @@ public class LoginServlet extends HttpServlet {
     private String username;
     private String password;
     int i = 0;
-    ArrayList<Stock> stocksList;
-    ArrayList<FixedIncome> incomesList;
+    ArrayList<Stock> stocksList = new ArrayList();
+    ArrayList<Double> stockInitialValues = new ArrayList();
+    ArrayList<Double> stockBalance = new ArrayList();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,11 +54,12 @@ public class LoginServlet extends HttpServlet {
 
 
 
-            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(4);
+            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(5);
 
             scheduler.scheduleAtFixedRate(() -> {
+                initializeStockInitialValues(req);
                 updateStocksPrice.updateStocksPriceFunction();
-//                HttpServletRequest request = (HttpServletRequest) req.getSession().getAttribute("request");
+//              HttpServletRequest request = (HttpServletRequest) req.getSession().getAttribute("request");
                 req.getSession().setAttribute("stocksList", stocksList);
                 setIncomesData(req);
                 setStocksData(req);
@@ -91,8 +93,40 @@ public class LoginServlet extends HttpServlet {
 
         req.getSession().setAttribute("incomesList", incomesList);
         for(FixedIncome a : incomesList){
-            System.out.println("1212");
             System.out.println(a.getName() + "///");
         }
     }
+    public void initializeStockInitialValues(HttpServletRequest req) {
+
+        ArrayList<Stock> stocksList = StocksDAO.getStocks();
+
+        stockInitialValues.add(83.2);
+        stockInitialValues.add(1.2);
+        stockInitialValues.add(27.92);
+        stockInitialValues.add(16.33);
+        stockInitialValues.add(51.25);
+        stockInitialValues.add(0.11);
+        stockInitialValues.add(14.16);
+        stockInitialValues.add(2.27);
+        stockInitialValues.add(95.8);
+        stockInitialValues.add(22.22);
+        req.getSession().setAttribute("stockInitialValues", stockInitialValues);
+
+        for(int i = 0; i < stocksList.size(); i++ ){
+
+
+          double res = stockInitialValues.get(i) - stocksList.get(i).getPriceStock();
+
+
+           double res2 = Math.floor(res * 1000)/100;
+
+            stockBalance.add(res2);
+
+        }
+
+        req.getSession().setAttribute("stockBalance", stockBalance);
+
+    }
+
+
 }

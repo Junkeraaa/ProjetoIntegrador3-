@@ -48,14 +48,14 @@
                     </tr>
                 </thead>
                  <tbody>
-                     <c:forEach var="stock" items="${sessionScope.stocksList}">
+                     <c:forEach var="stock" items="${sessionScope.stocksList}" varStatus="status">
                          <tr>
                              
                             <td>${stock.getNameStock()}</td>
-                            <td>${stock.getID()}</td>
+                            <td>R$ ${sessionScope.stockInitialValues[status.index]}</td>
                             <td>${stock.getPriceStock()}</td>
-                            <td></td>
-                            <td><button>comprar</button></td>
+                            <td>R$ ${sessionScope.stockBalance[status.index]}</td>
+                            <td><button>Comprar</button></td>
 
 
                          </tr>

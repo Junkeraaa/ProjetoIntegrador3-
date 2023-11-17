@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Suutz Investments</title>
     <link rel="stylesheet" type="text/css" href="myAssets.css">
+    <link rel="icon" type="image/x-icon" href="Imgs/logo.ico">
 </head>
 <body>
 

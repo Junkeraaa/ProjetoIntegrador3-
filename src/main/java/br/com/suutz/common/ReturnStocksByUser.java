@@ -18,6 +18,6 @@ public class ReturnStocksByUser {
         for(StockClient interactive : stockClients){
         listOfStocks.add(StocksDAO.getStockById(interactive.getStockId()));
         }
-
+        System.out.println("teste");
     }  
 }

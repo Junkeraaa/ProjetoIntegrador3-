@@ -1,10 +1,12 @@
 package br.com.suutz.servlet;
 
+import br.com.suutz.DAO.FixedIncomeDAO;
 import br.com.suutz.DAO.LoginDAO;
 import br.com.suutz.DAO.StocksDAO;
 import br.com.suutz.DAO.UsuarioDAO;
 import br.com.suutz.common.updateStocksPrice;
 import br.com.suutz.common.utils;
+import br.com.suutz.entity.FixedIncome;
 import br.com.suutz.entity.Stock;
 import br.com.suutz.entity.User;
 
@@ -47,14 +49,18 @@ public class LoginServlet extends HttpServlet {
 
             // Redirect to the loggedIn.jsp page
             utils.sendPageLoginDao(req, resp);
+            //fim login
 
 
-            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3);
+
+
+            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(4);
 
             scheduler.scheduleAtFixedRate(() -> {
                 updateStocksPrice.updateStocksPriceFunction();
 //                HttpServletRequest request = (HttpServletRequest) req.getSession().getAttribute("request");
                 req.getSession().setAttribute("stocksList", stocksList);
+                setIncomesData(req);
                 setStocksData(req);
             }, 0, 2, TimeUnit.SECONDS);
         } else {
@@ -66,16 +72,27 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    public void setStocksData(HttpServletRequest req) {
-        i++;
-        System.out.println("teste" + i);
+    public void setStocksData(HttpServletRequest req){
 
-        stocksList = StocksDAO.getStocks();
-        System.out.println("pora");
 
-        for (Stock a : stocksList) {
+        ArrayList<Stock> stocksList = StocksDAO.getStocks();
+
+        // Set stocksList as a request attribute
+        req.getSession().setAttribute("stocksList", stocksList);
+
+        for(Stock a : stocksList){
             System.out.println("banan");
             System.out.println(a.getPriceStock() + "///");
+        }
+    }
+
+    public void setIncomesData(HttpServletRequest req){
+
+        ArrayList<FixedIncome> incomesList = FixedIncomeDAO.getIncomes();
+
+        for(FixedIncome a : incomesList){
+            System.out.println("1212");
+            System.out.println(a.getName() + "///");
         }
     }
 }

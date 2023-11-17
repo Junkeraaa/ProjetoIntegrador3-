@@ -28,7 +28,7 @@ body{
 .line {
     width: 160%;
     border-top: 2px solid #000;
-    margin-left: -50%; 
+    margin-left: -10%; 
 }
 
 .investments {
@@ -60,3 +60,22 @@ body{
 }
 
 
+#redirectToIndexBtn {
+    background-color: rgb(0, 13, 49);
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para o botão ao passar o mouse */
+#redirectToIndexBtn:hover {
+    background-color: #0074D9;
+    transform: scale(1.1);
+}

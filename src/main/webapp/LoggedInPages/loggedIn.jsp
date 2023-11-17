@@ -14,6 +14,7 @@
        
     </header>
     <div class="corner-text">
+        <button id="redirectToIndexBtn">LogOut</button>
 
         <span>${sessionScope.user}</span>
 
@@ -30,7 +31,14 @@
 
     </div>
 
+    <script>
+        
+        document.getElementById("redirectToIndexBtn").addEventListener("click", function() {
+            
+            window.location.href = "/index.html";
+        });
+    </script>
 
-</script>
+
 </body>
 </html>

@@ -39,26 +39,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>CDB-ITAU</td>
-                    <td>CDB</td>
-                    <td>R$ 200,00</td>
-                    <td>10%</td>
-                    <td class="action-buttons">
-                        <button>Compra</button>
-                        <button>Venda</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pag2023</td>
-                    <td>LCA</td>
-                    <td>F$ 500,00</td>
-                    <td>12%</td>
-                    <td class="action-buttons">
-                        <button>Compra</button>
-                        <button>Venda</button>
-                    </td>
-                </tr>
+              <c:forEach var="fixedIncome" items="${sessionScope.incomeList}">
+              <tr>
+
+                 <td>${fixedIncome.getName()}</td>
+                  <td>${fixedIncome.getType()}</td>
+                  <td>100</td>
+                  <td>${fixedIncome.getFee()}</td>
+
+               </tr>
+               </c:forEach>
             </tbody>
         </table>
     </div>

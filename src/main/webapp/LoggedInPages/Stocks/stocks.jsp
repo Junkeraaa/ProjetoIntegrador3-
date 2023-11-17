@@ -54,7 +54,9 @@
                             <td>${stock.getNameStock()}</td>
                             <td>${stock.getID()}</td>
                             <td>${stock.getPriceStock()}</td>
-                            <td>${stock.getNameStock()}</td>
+                            <td></td>
+                            <td><button>comprar</button></td>
+
 
                          </tr>
                      </c:forEach>

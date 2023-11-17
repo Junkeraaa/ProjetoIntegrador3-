@@ -47,8 +47,6 @@ public class LoginServlet extends HttpServlet {
 
             req.getSession().setAttribute("user", user.getUser());
 
-
-            // Redirect to the loggedIn.jsp page
             utils.sendPageLoginDao(req, resp);
             //fim login
 

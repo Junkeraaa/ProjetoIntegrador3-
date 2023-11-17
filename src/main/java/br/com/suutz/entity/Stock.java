@@ -3,7 +3,7 @@ package br.com.suutz.entity;
 public class Stock {
 
     private int id;
-    String name_stock;
+    private String name_stock;
     private double price_stock;
 
     public Stock() {

@@ -28,15 +28,15 @@ VALUES
 --POPULANDO COM A INSERÇÃO DE 4 DADOS DENTRO DA TB FIXED_INCOME
   INSERT INTO FIXED_INCOME (price, name, type, fee)
  VALUES 
-(200, 'Itaú ValorProtegidoCDB', 'CDB', 8.5),
-(150, 'Santander RendimentoSeguroLCA', 'LCA', 9.2),
-(300, 'Banco do Brasil GarantiaRendaCDB', 'CDB', 7.8),
-(500, 'Caixa PremiumDebenture', 'Debenture', 6.5),
-(800, 'BTG Pactual ConfiancaCRI', 'CRI', 10.5),
-(250, 'Banco Inter ValorResilienteLCI', 'LCI', 8.9),
-(400, 'Original RendaConstanteLCA', 'LCA', 9.8),
-(600, 'Safra EstabilidadeCDB', 'CDB', 7.2),
-(700, 'Nubank RendimentoSolidoLCI', 'LCI', 9.5);
+(200, 'Itaú', 'CDB', 8.5),
+(150, 'Santander', 'LCA', 9.2),
+(300, 'Banco do Brasil', 'CDB', 7.8),
+(500, 'Petrobras', 'Debenture', 6.5),
+(800, 'BTG Pactual', 'CRI', 10.5),
+(250, 'Banco Inter', 'LCI', 8.9),
+(400, 'Original', 'LCA', 9.8),
+(600, 'Safra', 'CDB', 7.2),
+(700, 'Nubank', 'LCI', 9.5);
 
 INSERT INTO FIXED_INCOME_CLIENT (user_id, fixed_income_id, amount, yield) VALUES
 (1, 1, 2, 11),

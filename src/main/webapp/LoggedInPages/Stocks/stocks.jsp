@@ -50,10 +50,11 @@
                  <tbody>
                      <c:forEach var="stock" items="${sessionScope.stocksList}">
                          <tr>
-                             <td><%= session.getAttribute("stock.getName()") %></td>
-                             <td><%= session.getAttribute("teste")) %></td>
-                             <td><%= session.getAttribute("teste")) %></td>
-                             <td><%= session.getAttribute("teste") %></td>
+                             
+                            <td>${stock.getNameStock()}</td>
+                            <td>${stock.getID()}</td>
+                            <td>${stock.getPriceStock()}</td>
+                            <td>${stock.getNameStock()}</td>
 
                          </tr>
                      </c:forEach>

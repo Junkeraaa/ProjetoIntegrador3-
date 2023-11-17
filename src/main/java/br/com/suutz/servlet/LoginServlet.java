@@ -42,24 +42,17 @@ public class LoginServlet extends HttpServlet {
 
             req.getSession().setAttribute("user", user.getUser());
 
-            // Retrieve the stocks list
-            ArrayList<Stock> stocksList = StocksDAO.getStocks();
-
-            // Set stocksList as a request attribute
-            req.getSession().setAttribute("stocksList", stocksList);
-            for (Stock stock : stocksList){
-                System.out.println(stock.getNameStock());
-
-            }
-            req.getSession().setAttribute("teste", "testeee");
-
 
             // Redirect to the loggedIn.jsp page
             utils.sendPageLoginDao(req, resp);
 
             ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
-            scheduler.scheduleAtFixedRate(updateStocksPrice::updateStocksPriceFunction, 0, 15, TimeUnit.SECONDS);
+            scheduler.scheduleAtFixedRate(() -> {
+                System.out.println("Entrou na bunda");
+                updateStocksPrice.updateStocksPriceFunction();
+                setStocksData(req);
+            }, 0, 2, TimeUnit.SECONDS);
         } else {
             System.out.println("Login Failed");
             req.setAttribute("hasMessage", true);
@@ -67,5 +60,19 @@ public class LoginServlet extends HttpServlet {
 
             req.getRequestDispatcher("/LoggedOutPages/Login/login.jsp").forward(req, resp);
         }
+    }
+
+    public void setStocksData(HttpServletRequest req){
+
+       
+        ArrayList<Stock> stocksList = StocksDAO.getStocks();
+       
+            // Set stocksList as a request attribute
+            req.getSession().setAttribute("stocksList", stocksList);
+     
+            for(Stock a : stocksList){
+                System.out.println("banan");
+                System.out.println(a.getPriceStock() + "///");
+            }
     }
 }

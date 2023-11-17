@@ -26,7 +26,7 @@ CREATE TABLE STOCKS_CLIENT (
 --TB Renda Fixa
 CREATE TABLE FIXED_INCOME (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    price DECIMAL(5, 2) NOT NULL, --peço ação
+    price DECIMAL(5, 2) NOT NULL, --peço papel
     name VARCHAR(255) NOT NULL,--nome
     type VARCHAR(255) NOT NULL,--tipo
     fee DECIMAL(5, 2) NOT NULL--taxa

@@ -1,3 +1,10 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="br.com.suutz.entity.FixedIncome" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
+<%ArrayList incomeList = (ArrayList)request.getAttribute("incomeList"); %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,10 +49,10 @@
               <c:forEach var="fixedIncome" items="${sessionScope.incomeList}">
               <tr>
 
-                 <td>${fixedIncome.getName()}</td>
-                  <td>${fixedIncome.getType()}</td>
-                  <td>100</td>
-                  <td>${fixedIncome.getFee()}</td>
+                <td>${fixedIncome.getName()}</td>
+                <td>${fixedIncome.getType()}</td>
+                <td>1000</td>
+                <td>${fixedIncome.getFee()}</td>
 
                </tr>
                </c:forEach>

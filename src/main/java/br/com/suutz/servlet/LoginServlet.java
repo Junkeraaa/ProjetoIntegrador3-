@@ -30,6 +30,7 @@ public class LoginServlet extends HttpServlet {
     private String password;
     int i = 0;
     ArrayList<Stock> stocksList;
+    ArrayList<FixedIncome> incomesList;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -77,7 +78,7 @@ public class LoginServlet extends HttpServlet {
 
         ArrayList<Stock> stocksList = StocksDAO.getStocks();
 
-        // Set stocksList as a request attribute
+
         req.getSession().setAttribute("stocksList", stocksList);
 
         for(Stock a : stocksList){
@@ -90,6 +91,7 @@ public class LoginServlet extends HttpServlet {
 
         ArrayList<FixedIncome> incomesList = FixedIncomeDAO.getIncomes();
 
+        req.getSession().setAttribute("incomesList", incomesList);
         for(FixedIncome a : incomesList){
             System.out.println("1212");
             System.out.println(a.getName() + "///");

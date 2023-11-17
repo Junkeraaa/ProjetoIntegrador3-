@@ -133,18 +133,18 @@ public class StocksDAO {
 
     }
 
-    public static Stock getStockByName(String stockName) {
+    public static Stock getStockById(int id) {
 
         Stock stock = new Stock();
 
-    String SQLSelectStock = "SELECT * FROM STOCKS WHERE name_stock = ?";
+    String SQLSelectStock = "SELECT * FROM STOCKS WHERE id = ?";
 
     try {
         Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
         System.out.println("Connection Success");
 
         PreparedStatement stockStatement = connection.prepareStatement(SQLSelectStock);
-        stockStatement.setString(1, stockName);
+        stockStatement.setInt(1, id);
         ResultSet resultSet = stockStatement.executeQuery();
 
         if (resultSet.next()) {
@@ -201,7 +201,7 @@ public class StocksDAO {
     return stocksList;
 }
 
-    public static ArrayList<StockClient> getStockByUserId(int userId) {
+    public static ArrayList<StockClient> getStockClientByUserId(int userId) {
 
         ArrayList<StockClient> stockClient = new ArrayList<StockClient>();
 
@@ -221,6 +221,7 @@ public class StocksDAO {
             stockSpecificClient.setUserId(resultSet.getInt("user_id"));
             stockSpecificClient.setStockId(resultSet.getInt("stock_id"));
             stockSpecificClient.setQtd(resultSet.getInt("qtd"));
+            stockSpecificClient.setPricePay(resultSet.getDouble("price_pay"));
 
             stockClient.add(stockSpecificClient);
         }

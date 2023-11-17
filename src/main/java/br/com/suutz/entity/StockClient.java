@@ -6,6 +6,15 @@ public class StockClient {
     private int user_id;
     private int stock_id;
     private int qtd;
+    private double price_pay;
+
+    public double getPricePay() {
+        return this.price_pay;
+    }
+
+    public void setPricePay(double price_pay) {
+        this.price_pay = price_pay;
+    }
 
     public int getId() {
         return this.id;

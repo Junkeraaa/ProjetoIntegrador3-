@@ -70,6 +70,7 @@ html {
 
 .fundo{
     background-image: url("Imgs/InitialPage2.png"); 
+    background-position: center;
     height: 80vh;
     background-size: contain;
     background-repeat: no-repeat;
@@ -151,9 +152,7 @@ html {
     background-color: rgb(5, 148, 173);
     border-radius: 10px; /* Cantos arredondados */
     padding: 3px; /* Espaçamento interno */
-    max-width: 50vw; /* Largura máxima da caixa em relação à largura da viewport */
-    /* margin-left: auto; Alinhar à direita */
-    /* margin-right: 43%; Alinhar à esquerda */
+    max-width: 40vw; /* Largura máxima da caixa em relação à largura da viewport */
 }
 
 .products, .SobreProdutos {
@@ -203,7 +202,7 @@ html {
         background-color: rgb(5, 148, 173);
         border-radius: 10px; /* Cantos arredondados */
         padding: 3px; /* Espaçamento interno */
-        max-width: 50vw; /* Largura máxima da caixa em relação à largura da viewport */
+        max-width: 40vw; /* Largura máxima da caixa em relação à largura da viewport */
         /* margin-left: auto; Alinhar à direita */
         /* margin-right: 43%; Alinhar à esquerda */
     }

@@ -6,6 +6,34 @@ public class UsuarioDAO {
 
 
 
+    public int getUserID(String username){
+        String getUserSQL=  "SELECT * FROM USUARIOS WHERE login = ?";
+
+        int userID = 0;
+
+        try {
+
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            PreparedStatement selectBalanceStatement = connection.prepareStatement(getUserSQL);
+            selectBalanceStatement.setString(1, username);
+            ResultSet resultSet = selectBalanceStatement.executeQuery();
+
+            if(resultSet.next()){
+                userID = resultSet.getInt("login");
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println("Connection Failed");
+            e.printStackTrace();
+        }
+
+            return userID;
+    }
+
+
+
     public static double selectUserBalance(String username){
         String selectBalance=  "SELECT * FROM USUARIOS WHERE login = ?";
         double userBalance = 0.0;

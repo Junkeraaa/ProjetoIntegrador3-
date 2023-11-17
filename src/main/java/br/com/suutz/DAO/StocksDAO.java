@@ -32,29 +32,52 @@ public class StocksDAO {
                boolean hasBalance = getUserBalance > getStockPrice;
 
                if(hasBalance){
+                   UsuarioDAO usuarioDAO = new UsuarioDAO();
+                    int userID = usuarioDAO.getUserID(username);
+                    int stockID = getStockId(username);
 
-                    //insert
+                   insertStockToUser(userID, stockID);
+
+               }else {
+
+                   System.out.println("Não há saldo");
 
                }
 
-
             }
-
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-
-
-
     }//newOrder
 
-    private static void insertStockToUser(){
+    private static void insertStockToUser(int userID, int StockId){
 
         String insertStockSQL = "INSERT INTO STOCKS_CLIENT (user_id,stock_id) VALUES =(?, ?)";
 
-        
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+
+            PreparedStatement insertStockStatement = connection.prepareStatement(insertStockSQL);
+            insertStockStatement.setInt(1,userID);
+            insertStockStatement.setInt(2,StockId);
+
+            ResultSet resultSet = insertStockStatement.executeQuery();
+
+
+            if(resultSet.next()){
+                resultSet.getInt("user_id");
+                resultSet.getInt("stock_id");
+            }
+
+            connection.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -76,7 +99,7 @@ public class StocksDAO {
             if (resultSet.next()) {
                 stockId = resultSet.getInt("name_stock");
             }
-
+            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

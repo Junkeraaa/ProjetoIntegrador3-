@@ -38,7 +38,7 @@ html {
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
-    margin: 5px;''
+    margin: 5px;
     transition: background-color 0.3s ease;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
 }
@@ -69,14 +69,17 @@ html {
 }
 
 .fundo{
-    display: flex;
-    justify-content: center;
+    background-image: url("Imgs/InitialPage2.png"); 
+    height: 80vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: relative;
 }
 
 .LearnMore {
-    position: fixed;
-    bottom: 20px; /* Ou outro valor desejado para a distância do fundo */
-    right: 20px; /* Ou outro valor desejado para a distância da direita */
+    position: absolute;
+    bottom: 8rem;
+    right: 3rem; 
 }
 
 .LearnMore .textLearnMore{
@@ -119,34 +122,38 @@ html {
 }
 .content{
     background-color: #06002E;
-    padding: 100px;
-}
-
-
-.linhas {
-    position: absolute;
-    padding-bottom: 600px;
-    padding-left: 420px;
-    margin-bottom: 100%;
-
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    padding-left: 6rem;
+    display: flex;
+    align-items: center;
 }
 
 
 .texto {
-    max-width: 40rem;
-    margin: 0 5vw;
+    /* max-width: 50rem; */
     padding: 2rem;
+    color: rgb(255, 255, 255)
 }
 
 
 .texto h2 {
-    margin-right: 10vw; /* 10% da largura da viewport */
-    font-size: 2rem; /* Tamanho da fonte de 2 vezes o tamanho da fonte do elemento raiz */
+    margin-right: 0; /* 10% da largura da viewport */
+    font-size: 1.3rem; /* Tamanho da fonte de 2 vezes o tamanho da fonte do elemento raiz */
 }
 
 .texto p {
-    margin: 4rem; /* 4 vezes o tamanho da fonte do elemento raiz */
-    font-size: 1.5rem; /* Tamanho da fonte de 1.5 vezes o tamanho da fonte do elemento raiz */
+    margin: 1rem; /* 4 vezes o tamanho da fonte do elemento raiz */
+    font-size: 1.1rem; /* Tamanho da fonte de 1.5 vezes o tamanho da fonte do elemento raiz */
+}
+
+.quadrado-azul {
+    background-color: rgb(5, 148, 173);
+    border-radius: 10px; /* Cantos arredondados */
+    padding: 3px; /* Espaçamento interno */
+    max-width: 50vw; /* Largura máxima da caixa em relação à largura da viewport */
+    /* margin-left: auto; Alinhar à direita */
+    /* margin-right: 43%; Alinhar à esquerda */
 }
 
 .products, .SobreProdutos {
@@ -157,13 +164,14 @@ html {
 /* Estilos para telas maiores que 1024px (monitores) */
 @media screen and (min-width: 1025px) {
     .buttons {
-        margin-top: 3rem; /* Ajustado para 3rem */
+        margin-top: 1.5rem;
     }
+    
 
     .LearnMore {
         position: absolute;
-        bottom: 10vh; /* 10% da altura da viewport */
-        right: 10vw; /* 10% da largura da viewport */
+        bottom: 8rem;
+        right: 3rem; 
     }
 
     .textLearnMore {
@@ -175,18 +183,29 @@ html {
     }
 
     .texto {
-        max-width: 40%; /* Mantido para telas maiores */
-        margin: 0 5vw; /* 5% da largura da viewport nas margens horizontal */
-        padding: 2rem; /* Padding de 2 vezes o tamanho da fonte do elemento raiz */
+        /* max-width: 50rem; */
+        padding: 2rem;
+        color: rgb(255, 255, 255)
     }
-
+    
+    
     .texto h2 {
-        font-size: 2.5rem; /* Tamanho da fonte de 2.5 vezes o tamanho da fonte do elemento raiz */
+        margin-right: 0; /* 10% da largura da viewport */
+        font-size: 1.3rem; /* Tamanho da fonte de 2 vezes o tamanho da fonte do elemento raiz */
+    }
+    
+    .texto p {
+        margin: 1rem; /* 4 vezes o tamanho da fonte do elemento raiz */
+        font-size: 1.1rem; /* Tamanho da fonte de 1.5 vezes o tamanho da fonte do elemento raiz */
     }
 
-    .texto p {
-        font-size: 2rem; /* Tamanho da fonte de 2 vezes o tamanho da fonte do elemento raiz */
-        margin: 4rem; /* Ajustado para 4rem */
+    .quadrado-azul {
+        background-color: rgb(5, 148, 173);
+        border-radius: 10px; /* Cantos arredondados */
+        padding: 3px; /* Espaçamento interno */
+        max-width: 50vw; /* Largura máxima da caixa em relação à largura da viewport */
+        /* margin-left: auto; Alinhar à direita */
+        /* margin-right: 43%; Alinhar à esquerda */
     }
 
     .products, .SobreProdutos {

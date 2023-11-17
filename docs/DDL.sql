@@ -19,6 +19,7 @@ CREATE TABLE STOCKS_CLIENT (
     user_id INT,  -- Chave estrangeira para a tabela de usuários
     stock_id INT NOT NULL,--nome da ação
     qtd INT NOT NULL,--quantidade
+    price_pay DECIMAL (10, 2) NOT NULL 
     FOREIGN KEY (user_id) REFERENCES USUARIOS(id),
     FOREIGN KEY (stock_id) REFERENCES STOCKS(id)
 ); 

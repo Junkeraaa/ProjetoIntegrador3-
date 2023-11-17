@@ -21,11 +21,7 @@ public class StocksDAO {
 
             int rowsAffected = updateValueStatement.executeUpdate();
 
-            if (rowsAffected > 0) {
-                System.out.println("Balance updated successfully.");
-            } else {
-                System.out.println("User not found or balance not updated.");
-            }//ifelse
+        
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -76,7 +72,7 @@ public class StocksDAO {
 
     try {
         Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-        System.out.println("Connection Success");
+        
 
         PreparedStatement stockStatement = connection.prepareStatement(SQLSelectStock);
         ResultSet resultSet = stockStatement.executeQuery();

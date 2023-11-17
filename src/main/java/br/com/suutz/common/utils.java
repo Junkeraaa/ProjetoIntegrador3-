@@ -25,10 +25,10 @@ public class utils {
     }
 
     public static void sendPageLoginDao(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-    resp.sendRedirect(req.getContextPath() + "/LoggedInPages/loggedIn.jsp");
+        resp.sendRedirect(req.getContextPath() + "/LoggedInPages/loggedIn.jsp");
     }
 
     public static void reloadStocks(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-    resp.sendRedirect(req.getContextPath() + "/LoggedInPages/Stocks/stocks.jsp");
+        resp.sendRedirect(req.getContextPath() + "/LoggedInPages/Stocks/stocks.jsp");
     }
 }

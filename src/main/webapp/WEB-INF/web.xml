@@ -13,6 +13,16 @@
     <servlet-class>org.h2.server.web.WebServlet</servlet-class>
     <load-on-statup>1</load-on-statup>
   </servlet>
+  <servlet>
+    <servlet-name>ListStocksServlet</servlet-name>
+    <servlet-class>br.com.suutz.servlet.ListStocksServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ListStocksServlet</servlet-name>
+    <url-pattern>/listStocks</url-pattern>
+  </servlet-mapping>
+
 
   <servlet-mapping>
     <servlet-name>H2Console</servlet-name>

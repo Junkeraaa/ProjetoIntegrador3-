@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import br.com.suutz.entity.Stock;
+import br.com.suutz.entity.StockClient;
 
 public class StocksDAO {
 
@@ -95,6 +96,41 @@ public class StocksDAO {
     }
 
     return stocksList;
+}
+
+    public static ArrayList<StockClient> getStockByUserId(int userId) {
+
+        ArrayList<StockClient> stockClient = new ArrayList<StockClient>();
+
+    String SQLSelectStock = "SELECT * FROM STOCKS_CLIENT WHERE user_id = ?";
+
+    try {
+        Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+        System.out.println("Connection Success");
+
+        PreparedStatement stockStatement = connection.prepareStatement(SQLSelectStock);
+        stockStatement.setInt(1, userId);
+        ResultSet resultSet = stockStatement.executeQuery();
+
+        while (resultSet.next()) {
+        StockClient stockSpecificClient = new StockClient();
+            stockSpecificClient.setId(resultSet.getInt("id"));
+            stockSpecificClient.setUserId(resultSet.getInt("user_id"));
+            stockSpecificClient.setStockId(resultSet.getInt("stock_id"));
+            stockSpecificClient.setQtd(resultSet.getInt("qtd"));
+
+            stockClient.add(stockSpecificClient);
+        }
+
+        resultSet.close();
+        stockStatement.close();
+        connection.close();
+    } catch (SQLException e) {
+        System.out.println("Connection Failed");
+        e.printStackTrace();
+    }
+
+    return stockClient;
 }
 
 }

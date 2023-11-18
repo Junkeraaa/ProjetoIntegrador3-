@@ -12,13 +12,13 @@ body{
     color: aliceblue;
     font-size: 40px;
     font-family: 'Arial', 'Times New Roman', Times, serif;
-    
+
 }
 
 .line {
     width: 160%;
     border-top: 2px solid #000;
-    margin-left: -50%; 
+    margin-left: -50%;
 }
 
 
@@ -32,9 +32,9 @@ body{
 
 .conteiner-main{
 
-    background-color: #0D044D; 
-    width: 98%; 
-    padding-bottom: 40%; 
+    background-color: #0D044D;
+    width: 98%;
+    padding-bottom: 40%;
     border-radius: 30px;
     margin-left: 20px;
 }
@@ -53,13 +53,13 @@ body{
 .line {
     width: 12%;
     border-top: 2px solid #000;
-    margin: 10px auto; 
+    margin: 10px auto;
 }
 
 .line-corner{
     width: 160%;
     border-top: 2px solid #000;
-    margin-left: -10%; 
+    margin-left: -10%;
 }
 
 
@@ -67,14 +67,14 @@ body{
     font-family: Arial, sans-serif;
     font-size: 56px;
     text-align: center;
-    padding: 50px; 
+    padding: 50px;
     margin-left: -200px;
-    
+
 }
 
 .conteiner-main table th,
 .conteiner-main table td {
-    padding-left: 200px; 
+    padding-left: 200px;
     padding-bottom: 15px;
 }
 

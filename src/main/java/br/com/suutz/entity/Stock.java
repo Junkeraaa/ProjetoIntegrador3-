@@ -5,6 +5,7 @@ public class Stock {
     private int id;
     private String name_stock;
     private double price_stock;
+    private double initial_price;
 
     public Stock() {
       
@@ -33,5 +34,14 @@ public class Stock {
     public void setPriceStock(double price_stock){
         this.price_stock = price_stock;
     }
+
+    public double getInitial_price() {
+        return initial_price;
+    }
+
+    public void setInitial_price(double initial_price) {
+        this.initial_price = initial_price;
+    }
 }
+
 

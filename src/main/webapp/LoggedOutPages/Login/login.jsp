@@ -71,7 +71,7 @@ closeButton.addEventListener('click', function() {
 });
 
 
-setTimeout(closeMessage, 5000);
+setTimeout(closeMessage, 3000);
 
 
 </script>

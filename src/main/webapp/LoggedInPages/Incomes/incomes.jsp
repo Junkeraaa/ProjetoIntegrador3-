@@ -16,7 +16,7 @@
             <a class="logo" href="../loggedIn.jsp"><img src="../..\Imgs\LogoSuutz.png" alt=""></a>
         </header>
 
-        <div class="textAsset">Renda Variável</div>
+        <div class="textAsset">Renda Fixa</div>
         <hr class="line">
         <div class="corner-text">
             <span>${sessionScope.user}</span> | Saldo: <span>${sessionScope.saldo}</span>

@@ -9,6 +9,7 @@
     <title>Suutz Investments</title>
     <link rel="stylesheet" type="text/css" href="/LoggedInPages/Stocks/stocks.css">
     <link rel="icon" type="image/x-icon" href="/Imgs/logo.ico">
+    <meta http-equiv="Refresh" content="5">
 </head>
 
 <body>
@@ -50,7 +51,7 @@
                             <td>${stock.getNameStock()}</td>
                             <td>R$ ${sessionScope.stockInitialValues[status.index]}</td>
                             <td>${stock.getPriceStock()}</td>
-                            <td>R$ ${sessionScope.stockBalance[status.index]}</td>
+                            <td>R$ ${stockBalance}</td>
                             <td><button>Comprar</button></td>
 
 

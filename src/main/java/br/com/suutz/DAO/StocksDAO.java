@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import br.com.suutz.entity.Stock;
 import br.com.suutz.entity.StockClient;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
 public class StocksDAO {
 
 
@@ -41,7 +44,6 @@ public class StocksDAO {
                }else {
 
                    System.out.println("Não há saldo");
-
                }
 
             }
@@ -80,10 +82,6 @@ public class StocksDAO {
 
 
     }
-
-
-
-
     private static int getStockId(String stockName) {
 
         String getStockIdSQL = "SELECT * FROM STOCKS WHERE name_stock = ?";
@@ -106,8 +104,6 @@ public class StocksDAO {
 
         return stockId;
     }
-
-
 
     private static double getStockPrice(int stockID){
 

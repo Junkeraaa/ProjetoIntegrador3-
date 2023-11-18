@@ -1,19 +1,14 @@
 
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="br.com.suutz.entity.Stock" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-
-<%ArrayList stocksList = (ArrayList)request.getAttribute("stocksList"); %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Suutz Investments</title>
-    <link rel="stylesheet" type="text/css" href="stocks.css">
-    <link rel="icon" type="image/x-icon" href="Imgs/logo.ico">
+    <link rel="stylesheet" type="text/css" href="/LoggedInPages/Stocks/stocks.css">
+    <link rel="icon" type="image/x-icon" href="/Imgs/logo.ico">
 </head>
 
 <body>
@@ -22,7 +17,7 @@
 
         <header>
 
-            <a class="logo" href="../loggedIn.jsp"><img src="../..\Imgs\LogoSuutz.png" alt=""></a>
+            <a class="logo" href="../loggedIn.jsp"><img src="/Imgs\LogoSuutz.png" alt=""></a>
 
         </header>
 
@@ -49,7 +44,7 @@
                     </tr>
                 </thead>
                  <tbody>
-                     <c:forEach var="stock" items="${sessionScope.stocksList}" varStatus="status">
+                     <c:forEach var="stock" items="${stocksList}" varStatus="status">
                          <tr>
                              
                             <td>${stock.getNameStock()}</td>

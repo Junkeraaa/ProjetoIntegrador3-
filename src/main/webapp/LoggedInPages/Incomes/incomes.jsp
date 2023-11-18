@@ -1,15 +1,12 @@
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="br.com.suutz.entity.FixedIncome" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<% ArrayList incomesList = (ArrayList)request.getAttribute("incomesList"); %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Suutz Investments</title>
-    <link rel="stylesheet" type="text/css" href="incomes.css">
+    <link rel="stylesheet" type="text/css" href="/LoggedInPages/Incomes/incomes.css">
     <link rel="icon" type="image/x-icon" href="Imgs/logo.ico">
 </head>
 <body>
@@ -39,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="fixedIncome" items="${sessionScope.incomesList}">
+                    <c:forEach var="fixedIncome" items="${incomesList}">
 
                         <tr>
                             <td>${fixedIncome.getName()}</td>

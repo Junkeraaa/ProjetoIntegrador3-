@@ -61,8 +61,6 @@ public class LoginServlet extends HttpServlet {
                 updateStocksPrice.updateStocksPriceFunction();
 //              HttpServletRequest request = (HttpServletRequest) req.getSession().getAttribute("request");
                 req.getSession().setAttribute("stocksList", stocksList);
-                setIncomesData(req);
-                setStocksData(req);
             }, 0, 2, TimeUnit.SECONDS);
         } else {
             System.out.println("Login Failed");
@@ -70,20 +68,6 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("message", "Usuário ou senha incorretos");
 
             req.getRequestDispatcher("/LoggedOutPages/Login/login.jsp").forward(req, resp);
-        }
-    }
-
-    public void setStocksData(HttpServletRequest req){
-
-
-        ArrayList<Stock> stocksList = StocksDAO.getStocks();
-
-
-        req.getSession().setAttribute("stocksList", stocksList);
-
-        for(Stock a : stocksList){
-            System.out.println("banan");
-            System.out.println(a.getPriceStock() + "///");
         }
     }
 
@@ -98,6 +82,7 @@ public class LoginServlet extends HttpServlet {
     }
     public void initializeStockInitialValues(HttpServletRequest req) {
 
+        System.out.println("Inicializou ISIV");
         ArrayList<Stock> stocksList = StocksDAO.getStocks();
 
         stockInitialValues.add(83.2);

@@ -45,10 +45,10 @@ INSERT INTO FIXED_INCOME_CLIENT (user_id, fixed_income_id, amount, yield) VALUES
 (1, 2, 1, 11),
 (2, 2, 2, 11);
 
-INSERT INTO STOCKS_CLIENT (user_id,stock_id, qtd) VALUES
-(1, 1, 2, 83.2),
-(2, 1, 1, 83.2),
-(3, 3, 4, 27.92),
-(1, 2, 1, 1.2),
-(2, 2, 2, 1.2);
+INSERT INTO STOCKS_CLIENT (user_id, stock_id, price_pay) VALUES
+(1, 1, 83.2),
+(2, 1, 83.2),
+(3, 3, 27.92),
+(1, 2, 1.2),
+(2, 2, 1.2);
 

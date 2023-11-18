@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Suutz Investments</title>
     <link rel="stylesheet" type="text/css" href="loggedIn.css">
+    <link rel="icon" type="image/x-icon" href="Imgs/logo.ico">
 </head>
 <body>
 
@@ -26,8 +27,8 @@
     <div class="investments">
 
         <a href="MyAssets/myAssets.jsp" class="meusAtivos"><img src="../../Imgs/MeusAtivos.png" alt=""></a>
-        <a href="Incomes/incomes.jsp" class="meusAtivos"><img src="../../Imgs/RendaFixa.png" alt=""></a>
-        <a href="Stocks/stocks.jsp" class="meusAtivos"><img src="../../Imgs/RendaVariavel.png" alt=""></a>
+        <a href="/getIncomes"" class="meusAtivos"><img src="../../Imgs/RendaFixa.png" alt=""></a>
+        <a href="/getStocks" class="meusAtivos"><img src="/Imgs/RendaVariavel.png" alt=""></a>
 
     </div>
 

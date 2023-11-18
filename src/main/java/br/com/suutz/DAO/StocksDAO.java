@@ -239,7 +239,6 @@ public class StocksDAO {
             stockSpecificClient.setId(resultSet.getInt("id"));
             stockSpecificClient.setUserId(resultSet.getInt("user_id"));
             stockSpecificClient.setStockId(resultSet.getInt("stock_id"));
-            stockSpecificClient.setQtd(resultSet.getInt("qtd"));
             stockSpecificClient.setPricePay(resultSet.getDouble("price_pay"));
 
             stockClient.add(stockSpecificClient);

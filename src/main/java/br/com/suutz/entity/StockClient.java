@@ -5,7 +5,6 @@ public class StockClient {
     private int id;
     private int user_id;
     private int stock_id;
-    private int qtd;
     private double price_pay;
 
     public double getPricePay() {
@@ -38,14 +37,6 @@ public class StockClient {
 
     public void setStockId(int stock_id) {
         this.stock_id = stock_id;
-    }
-
-    public int getQtd() {
-        return this.qtd;
-    }
-
-    public void setQtd(int qtd) {
-        this.qtd = qtd;
     }
 
 

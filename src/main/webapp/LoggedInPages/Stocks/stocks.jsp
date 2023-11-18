@@ -18,7 +18,7 @@
 
         <header>
 
-            <a class="logo" href="../loggedIn.jsp"><img src="/Imgs\LogoSuutz.png" alt=""></a>
+            <a class="logo" href="/LoggedInPages/loggedIn.jsp"><img src="/Imgs\LogoSuutz.png" alt=""></a>
 
         </header>
 
@@ -50,7 +50,7 @@
                              
                             <td>${stock.getNameStock()}</td>
                             <td>R$ ${sessionScope.stockInitialValues[status.index]}</td>
-                            <td>${stock.getPriceStock()}</td>
+                            <td>R$ ${stock.getPriceStock()}</td>
                             <td>R$ ${stockBalance}</td>
                             <td><button>Comprar</button></td>
 

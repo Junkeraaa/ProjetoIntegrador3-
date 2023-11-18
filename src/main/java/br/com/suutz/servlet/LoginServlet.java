@@ -28,9 +28,6 @@ public class LoginServlet extends HttpServlet {
     private String username;
     private String password;
     int i = 0;
-    ArrayList<Stock> stocksList = new ArrayList();
-    ArrayList<Double> stockInitialValues = new ArrayList();
-    ArrayList<Double> stockBalance = new ArrayList();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -50,15 +47,6 @@ public class LoginServlet extends HttpServlet {
             utils.sendPageLoginDao(req, resp);
             //fim login
 
-
-
-
-            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3);
-
-            scheduler.scheduleAtFixedRate(() -> {
-                updateStocksPrice.updateStocksPriceFunction();
-                req.getSession().setAttribute("stocksList", stocksList);
-            }, 0, 2, TimeUnit.SECONDS);
         } else {
             System.out.println("Login Failed");
             req.setAttribute("hasMessage", true);

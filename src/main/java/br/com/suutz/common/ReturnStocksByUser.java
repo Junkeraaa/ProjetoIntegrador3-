@@ -41,8 +41,9 @@ public class ReturnStocksByUser {
                 myAssetsStocksInterface.add(myAssets);
         }
     }
-       
+        System.out.println("Retornou array de stocks do user");
         return myAssetsStocksInterface;
+
     } 
     
     public static boolean existsInStockCounted(String stockName, ArrayList<String> stocksCounted){

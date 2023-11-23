@@ -15,7 +15,6 @@ public class LoginDAO {
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-            System.out.println("Connection Success");
 
             PreparedStatement loginStatement = connection.prepareStatement(SQLLoginUser);
             loginStatement.setString(1, username);

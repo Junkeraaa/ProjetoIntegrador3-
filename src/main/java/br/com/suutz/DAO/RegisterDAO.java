@@ -13,7 +13,6 @@ public class RegisterDAO {
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-            System.out.println("Connection Success");
 
             PreparedStatement checkUserStatement = connection.prepareStatement(SQLCheckUser);
             checkUserStatement.setString(1, user.getUser());

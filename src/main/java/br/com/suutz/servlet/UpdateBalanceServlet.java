@@ -24,6 +24,7 @@ public class UpdateBalanceServlet extends HttpServlet {
             
             double newBalance = Double.parseDouble(req.getParameter("newBalance"));
 
+
             UsuarioDAO.selectUserBalance(GlobalData.userLogged.getUser());
             UsuarioDAO.updateBalance(GlobalData.userLogged.getUser(), newBalance);
 

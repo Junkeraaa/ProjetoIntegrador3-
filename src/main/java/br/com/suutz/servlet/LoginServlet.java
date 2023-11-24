@@ -39,7 +39,9 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             System.out.println("Login Success");
 
+
             double currentBalance = UsuarioDAO.selectUserBalance(username);
+
             req.getSession().setAttribute("saldo", currentBalance);
 
             req.getSession().setAttribute("user", user.getUser());

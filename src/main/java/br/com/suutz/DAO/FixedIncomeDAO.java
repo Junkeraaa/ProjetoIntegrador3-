@@ -4,10 +4,9 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import br.com.suutz.common.GlobalData;
-import br.com.suutz.common.UpdateIncomeUser;
 import br.com.suutz.entity.FixedIncome;
 import br.com.suutz.entity.FixedIncomeClient;
-import br.com.suutz.entity.Stock;
+
 
 public class FixedIncomeDAO {
 
@@ -37,31 +36,30 @@ public class FixedIncomeDAO {
                     int userId = GlobalData.userLogged.getId();
                     int incomeId = getIncomeId(incomeName);
 
-                    double difference = getUserBalance - getIncomePrice(incomeId);
+                    double newBalance = getUserBalance - getIncomePrice(incomeId);
 
 
-                    UsuarioDAO.updateBalance(username,difference);
+                    UsuarioDAO.updateBalance(username,newBalance);
 
-                    insetIncomeToUser(userId,incomeId,difference, FixedIncomeDAO.getFee());
+                    insetIncomeToUser(userId,incomeId);
 
 
-                    return Math.round(difference*100.0) * 100.0;
+                    return newBalance;
+                }else {
+                    System.out.println("No balance");
                 }
-
 
             }
         }catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
             return 0;
 
     }
 
 
-    private static void insetIncomeToUser(int userID, int fixed_income_id, double amount, double yeld){
-        String insertIncomeSQL = "INSERT INTO FIXED_INCOME_CLIENT (user_id, fixed_income_id, amount, yield) VALUES (?, ?, ?, ?)";
+    private static void insetIncomeToUser(int userID, int fixed_income_id){
+        String insertIncomeSQL = "INSERT INTO FIXED_INCOME_CLIENT (user_id, fixed_income_id) VALUES (?, ?)";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -69,8 +67,6 @@ public class FixedIncomeDAO {
             PreparedStatement insertStockStatement = connection.prepareStatement(insertIncomeSQL, Statement.RETURN_GENERATED_KEYS);
             insertStockStatement.setInt(1, userID);
             insertStockStatement.setInt(2, fixed_income_id);
-            insertStockStatement.setDouble(3, amount);
-            insertStockStatement.setDouble(4,yeld);
 
             int rowsAffected = insertStockStatement.executeUpdate();
 
@@ -148,46 +144,6 @@ public class FixedIncomeDAO {
 
     }
 
-    public static double getAmountByUserId(int userId, int fixedIncomeId) {
-        String selectAmountSQL = "SELECT amount FROM FIXED_INCOME_CLIENT WHERE user_id = ? AND fixed_income_id = ?";
-
-        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-             PreparedStatement selectAmountStatement = connection.prepareStatement(selectAmountSQL)) {
-
-            selectAmountStatement.setInt(1, userId);
-            selectAmountStatement.setInt(2, fixedIncomeId);
-
-            try (ResultSet resultSet = selectAmountStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    return resultSet.getDouble("amount");
-                } else {
-                    // Lida com o caso em que não há registros correspondentes na tabela FIXED_INCOME_CLIENT
-                    return 0.0; // Ou qualquer valor padrão desejado
-                }
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static double getFee() {
-        String selectFeeSQL = "SELECT fee FROM FIXED_INCOME";
-
-        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-             PreparedStatement selectFeeStatement = connection.prepareStatement(selectFeeSQL);
-             ResultSet resultSet = selectFeeStatement.executeQuery()) {
-
-            if (resultSet.next()) {
-                return resultSet.getDouble("fee");
-            } else {
-                return 0.0; //Erro
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 
     public static FixedIncome getIncomeById(int id) {
@@ -317,8 +273,6 @@ public static ArrayList<FixedIncomeClient> getFixedIncomeByUserId(int userId) {
         FixedIncomeClient stockSpecificClient = new FixedIncomeClient();
             stockSpecificClient.setUserId(resultSet.getInt("id"));
             stockSpecificClient.setFixedIncomeId(resultSet.getInt("fixed_income_id"));
-            stockSpecificClient.setAmount(resultSet.getDouble("amount"));
-            stockSpecificClient.setYield(resultSet.getInt("yield"));
 
             fixedIncome.add(stockSpecificClient);
         }

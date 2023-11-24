@@ -38,6 +38,7 @@ public class StocksDAO {
                     int stockID = StocksDAO.getStockId(stockName);
 
                    double newBalance = getUserBalance - getStockPrice(stockID);
+                   System.out.println("NOVO VALOR: " +newBalance);
                    UsuarioDAO.updateBalance(username,newBalance);
 
                    insertStockToUser(userID, stockID);
@@ -56,6 +57,32 @@ public class StocksDAO {
 
     }//newOrder
 
+
+    public static Double getPricePayedStock(int userID) {
+
+        double totalPrices = 0.0;
+        ArrayList<Double> pricesPayed = new ArrayList<>();
+        String getPriceSQL = "SELECT price_pay FROM STOCKS_CLIENT WHERE user_id = ?";
+
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa")) {
+            PreparedStatement getPriceStatement = connection.prepareStatement(getPriceSQL);
+            getPriceStatement.setInt(1, userID);
+
+            ResultSet resultSet = getPriceStatement.executeQuery();
+
+            while (resultSet.next()) {
+                double pricePayed = resultSet.getDouble("price_pay");
+                pricesPayed.add(pricePayed);
+            }
+            for (double price : pricesPayed) {
+                totalPrices += price;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return totalPrices;
+    }
 
     private static void insertStockToUser(int userID, int stockId) {
         String insertStockSQL = "INSERT INTO STOCKS_CLIENT (user_id, stock_id, price_pay) VALUES (?, ?, ?)";

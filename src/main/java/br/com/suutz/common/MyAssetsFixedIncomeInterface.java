@@ -1,10 +1,21 @@
 package br.com.suutz.common;
 
+import br.com.suutz.entity.FixedIncome;
+
 public class MyAssetsFixedIncomeInterface {
     private String name;
     private String type;
     private double fee;
-    private double amount;
+    private double price;
+
+    public double getPrice() {
+
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public String getName() {
         return this.name;
@@ -29,15 +40,6 @@ public class MyAssetsFixedIncomeInterface {
     public void setFee(double fee) {
         this.fee = fee;
     }
-
-    public double getAmount() {
-        return this.amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
 
     
 }

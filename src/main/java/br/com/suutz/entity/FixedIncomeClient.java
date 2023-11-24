@@ -32,20 +32,5 @@ public class FixedIncomeClient {
         this.fixed_income_id = fixed_income_id;
     }
 
-    public double getAmount() {
-        return this.amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public double getYield() {
-        return this.yield;
-    }
-
-    public void setYield(double yield) {
-        this.yield = yield;
-    }
 
 }

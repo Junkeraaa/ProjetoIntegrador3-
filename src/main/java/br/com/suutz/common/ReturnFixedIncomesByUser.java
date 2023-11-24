@@ -21,7 +21,7 @@ public class ReturnFixedIncomesByUser {
 
         for(FixedIncome interactive : fixedIncomeByUserSearch){
             MyAssetsFixedIncomeInterface MyAssetsFixedIncomeInterfaceClient = new MyAssetsFixedIncomeInterface();
-            MyAssetsFixedIncomeInterfaceClient.setAmount(interactive.getPrice());
+            MyAssetsFixedIncomeInterfaceClient.setPrice(interactive.getPrice());
             MyAssetsFixedIncomeInterfaceClient.setFee(interactive.getFee());
             MyAssetsFixedIncomeInterfaceClient.setName(interactive.getName());
             MyAssetsFixedIncomeInterfaceClient.setType(interactive.getType());

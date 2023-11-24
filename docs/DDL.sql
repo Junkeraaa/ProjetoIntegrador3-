@@ -37,8 +37,6 @@ CREATE TABLE FIXED_INCOME_CLIENT (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,  -- Chave estrangeira para a tabela de usuários
     fixed_income_id INT NOT NULL, --Chave estrangeira para associar a renda fixa
-    amount DECIMAL(10, 2) NOT NULL,--montante
-    yield DECIMAL(10, 2) NOT NULL,--rendimento
     FOREIGN KEY (user_id) REFERENCES USUARIOS(id),
     FOREIGN KEY (fixed_income_id) REFERENCES FIXED_INCOME(id)
 );

@@ -26,7 +26,7 @@ public class UpdateBalanceServlet extends HttpServlet {
 
             UsuarioDAO.selectUserBalance(GlobalData.userLogged.getUser());
             UsuarioDAO.updateBalance(GlobalData.userLogged.getUser(), newBalance);
-            System.out.println("novo valor" + newBalance);
+
             
             req.getSession().setAttribute("saldo", newBalance);
 

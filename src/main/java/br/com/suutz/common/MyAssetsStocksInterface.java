@@ -8,11 +8,11 @@ public class MyAssetsStocksInterface {
     private double balance;
 
     public double getBalance() {
-        return this.balance;
+        return (double) Math.round(this.balance * 100) / 100;
     }
 
     public void setBalance() {
-        this.balance = this.price_pay - this.price_now;
+        this.balance = this.price_now - this.price_pay;
     }
 
     public String getNameStock() {

@@ -8,9 +8,6 @@ public class FixedIncome {
     private String type;
     private double fee;
 
-    public FixedIncome() {
-      
-    }
 
     public int getID() {
         return id;

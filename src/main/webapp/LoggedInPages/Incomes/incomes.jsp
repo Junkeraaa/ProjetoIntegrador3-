@@ -54,7 +54,7 @@
                         <tr>
                             <td>${fixedIncome.getName()}</td>
                             <td>${fixedIncome.getType()}</td>
-                            <td>100</td>
+                            <td>${fixedIncome.getPrice()}</td>
                             <td>${fixedIncome.getFee()}%</td>
                         </tr>
                  </c:forEach>

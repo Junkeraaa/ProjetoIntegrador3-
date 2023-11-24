@@ -17,7 +17,7 @@ public class IncomesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
             ArrayList<FixedIncome> incomesList = FixedIncomeDAO.getIncomes();
-        
+
             req.setAttribute("incomesList", incomesList);
 
             req.getRequestDispatcher("/LoggedInPages/Incomes/incomes.jsp").forward(req, resp);

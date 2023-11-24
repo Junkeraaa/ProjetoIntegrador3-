@@ -14,28 +14,30 @@ public class ReturnStocksByUser {
         ArrayList<String> stocksCounted = new ArrayList<String>();
 
         ArrayList<StockClient> stockClients = new ArrayList<StockClient>();
+        double getPricePayedStock = StocksDAO.getPricePayedStock(user.getId());
         stockClients = StocksDAO.getStockClientByUserId(user.getId());
         ArrayList<Stock> listOfStocks = new ArrayList<Stock>();
         for(StockClient interactive : stockClients){
         listOfStocks.add(StocksDAO.getStockById(interactive.getStockId()));
+
         }
 
         for(Stock interactive : listOfStocks){
             if(existsInStockCounted(interactive.getNameStock(), stocksCounted)){
                 stocksCounted.add(interactive.getNameStock());
                 int accounter = 0;
-                double priceMedium = 0;
 
                 for(Stock interactive2 : listOfStocks){
                 if(interactive.getNameStock().equalsIgnoreCase(interactive2.getNameStock())){
-                    priceMedium += interactive2.getPriceStock();
-                    accounter++;
+                                        ++accounter;
                     }
                 }
+                double priceTotal = getPricePayedStock/accounter;
+                double priceNow = interactive.getPriceStock();
                 MyAssetsStocksInterface myAssets = new MyAssetsStocksInterface();
                 myAssets.setNameStock(interactive.getNameStock());
-                myAssets.setPriceNow(interactive.getPriceStock());
-                myAssets.setPricePay((priceMedium/accounter));
+                myAssets.setPriceNow(priceNow);
+                myAssets.setPricePay(priceTotal);
                 myAssets.setBalance();
                 myAssets.setQtd(accounter);
 

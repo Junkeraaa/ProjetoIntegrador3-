@@ -76,7 +76,7 @@
                 <th>Ação</th>
                 <th>Qtd</th>
                 <th>Média Valor comprado</th>
-                <th>Média Preço/Ação</th>
+                <th>Preço/Ação</th>
                 <th>Balanço</th>
                </tr>
             </thead>

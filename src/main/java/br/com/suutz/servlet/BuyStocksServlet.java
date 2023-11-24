@@ -24,7 +24,7 @@ public class BuyStocksServlet extends HttpServlet {
         System.out.println("Received request in BuyStocksServlet");
 
         if(GlobalData.userLogged != null){
-            ArrayList<Stock> listStockUser = new ArrayList<>();
+
             String stockName = req.getParameter("buyStock").toUpperCase();
 
             double newOrder = StocksDAO.newStockOrder(GlobalData.userLogged.getUser(),stockName);

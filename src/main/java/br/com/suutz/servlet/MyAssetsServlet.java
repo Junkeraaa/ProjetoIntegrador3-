@@ -1,10 +1,7 @@
 package br.com.suutz.servlet;
 
 
-import br.com.suutz.common.GlobalData;
-import br.com.suutz.common.MyAssetsStocksInterface;
-import br.com.suutz.common.ReturnStocksByUser;
-import br.com.suutz.common.updateStocksPrice;
+import br.com.suutz.common.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +21,7 @@ public class MyAssetsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ArrayList<MyAssetsStocksInterface> listStockUser= ReturnStocksByUser.ReturnStocksByUserFunction(GlobalData.userLogged);
+        ArrayList<MyAssetsFixedIncomeInterface> listIncomeUser = ReturnFixedIncomesByUser.ReturnFixedIncomesByUserFunction((GlobalData.userLogged));
 
 
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3);
@@ -31,7 +29,10 @@ public class MyAssetsServlet extends HttpServlet {
         scheduler.scheduleAtFixedRate(() -> {
             updateStocksPrice.updateStocksPriceFunction();
             req.setAttribute("listStockUser", listStockUser);
+            req.setAttribute("listIncomeUser", listIncomeUser);
         }, 0, 2, TimeUnit.SECONDS);
+
+        req.setAttribute("listIncomeUser", listIncomeUser);
 
         req.setAttribute("listStockUser", listStockUser);
 

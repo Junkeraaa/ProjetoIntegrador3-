@@ -41,7 +41,34 @@
     </section>
 
     <div class="conteiners">
-        <div class="conteiner-left">Mensagem teste</div>
+        <div class="conteiner-left">
+
+       <table class="conteiner-main">
+                       <thead>
+                           <tr>
+                               <th>Papel</th>
+                               <th>Tipo-PRD</th>
+                               <th>Apt-Min</th>
+                               <th>Taxa(a.a)</th>
+
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <c:forEach var="listIncomeUser" items="${listIncomeUser}">
+
+                               <tr>
+                                   <td>${listIncomeUser.getName()}</td>
+                                   <td>${listIncomeUser.getType()}</td>
+                                   <td>${listIncomeUser.getPrice()}</td>
+                                   <td>${listIncomeUser.getFee()}%</td>
+                               </tr>
+                        </c:forEach>
+                       </tbody>
+                   </table>
+
+
+
+        </div>
         <div class="conteiner-right">
 <table class="conteiner-main">
             <thead>

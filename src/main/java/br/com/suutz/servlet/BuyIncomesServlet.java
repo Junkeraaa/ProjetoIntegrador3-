@@ -20,12 +20,12 @@ public class BuyIncomesServlet extends HttpServlet {
         System.out.println("Received request in BuyIncomesServlet");
 
         if(GlobalData.userLogged !=null){
-            ArrayList<FixedIncome> listIncomesUser = new ArrayList<>();
+
             String incomeName = req.getParameter("buyIncomes");
-            System.out.println(incomeName);
 
             try {
                 double newOrder = FixedIncomeDAO.newOrder(GlobalData.userLogged.getUser(), incomeName);
+
                 req.getSession().setAttribute("saldo" , newOrder);
 
                 resp.sendRedirect("/getIncomes");

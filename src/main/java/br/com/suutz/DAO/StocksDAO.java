@@ -38,6 +38,7 @@ public class StocksDAO {
                     int stockID = StocksDAO.getStockId(stockName);
 
                    double newBalance = getUserBalance - getStockPrice(stockID);
+                   System.out.println("NOVO VALOR: " +newBalance);
                    UsuarioDAO.updateBalance(username,newBalance);
 
                    insertStockToUser(userID, stockID);

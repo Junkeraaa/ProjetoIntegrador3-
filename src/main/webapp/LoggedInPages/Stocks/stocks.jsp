@@ -1,4 +1,3 @@
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
@@ -60,12 +59,10 @@
                  <tbody>
                      <c:forEach var="stock" items="${stocksList}" varStatus="status">
                          <tr>
-
                             <td>${stock.getNameStock()}</td>
-                            <td>R$ ${sessionScope.stockInitialValues[status.index]}</td>
-                            <td>R$ ${stock.getPriceStock()}</td>
-                            <td>R$ ${stockBalance}</td>
-                            <td> </td>
+                            <td>R$ ${stock.getInitialValue()}</td>
+                             <td>R$ ${stock.getPriceStock()}</td>
+                             <td>R$ ${stock.getFinalValue()}</td>
                          </tr>
                      </c:forEach>
                  </tbody>
@@ -91,4 +88,7 @@
 
 
  </body>
+
 </html>
+
+

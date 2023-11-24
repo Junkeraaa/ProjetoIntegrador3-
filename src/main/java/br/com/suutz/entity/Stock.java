@@ -42,6 +42,60 @@ public class Stock {
     public void setInitial_price(double initial_price) {
         this.initial_price = initial_price;
     }
+
+    public double getFinalValue(){
+        switch (name_stock) {
+            case "APPL4":
+                return price_stock-83.2;
+            case "MGLU3":
+                return price_stock-1.2;
+            case "PETR4":
+                return price_stock-27.92;
+            case "CIEL3":
+                return price_stock-16.33;
+            case "ITUB4":
+                return price_stock-51.25;
+            case "AMER3":
+                return price_stock-0.11;
+            case "CURY3":
+                return price_stock-14.16;
+            case "CEAB3":
+                return price_stock-2.27;
+            case "GGPS3":
+                return price_stock-95.8;
+            case "TASA4":
+                return price_stock-22.22;
+            default:
+                return price_stock-0.0;
+        }
+    }
+
+    public double getInitialValue(){
+        switch (name_stock) {
+            case "APPL4":
+                return 83.2;
+            case "MGLU3":
+                return 1.2;
+            case "PETR4":
+                return 27.92;
+            case "CIEL3":
+                return 16.33;
+            case "ITUB4":
+                return 51.25;
+            case "AMER3":
+                return 0.11;
+            case "CURY3":
+                return 14.16;
+            case "CEAB3":
+                return 2.27;
+            case "GGPS3":
+                return 95.8;
+            case "TASA4":
+                return 22.22;
+            default:
+                return 0.0;
+        }
+    }
 }
 
 

@@ -14,7 +14,6 @@ public class ReturnStocksByUser {
         ArrayList<String> stocksCounted = new ArrayList<String>();
 
         ArrayList<StockClient> stockClients = new ArrayList<StockClient>();
-        double getPricePayedStock = StocksDAO.getPricePayedStock(user.getId());
         stockClients = StocksDAO.getStockClientByUserId(user.getId());
         ArrayList<Stock> listOfStocks = new ArrayList<Stock>();
         for(StockClient interactive : stockClients){
@@ -32,6 +31,7 @@ public class ReturnStocksByUser {
                                         ++accounter;
                     }
                 }
+                double getPricePayedStock = StocksDAO.getPricePayedStock(user.getId(), interactive.getID());
                 double priceTotal = getPricePayedStock/accounter;
                 double priceNow = interactive.getPriceStock();
                 MyAssetsStocksInterface myAssets = new MyAssetsStocksInterface();

@@ -58,15 +58,16 @@ public class StocksDAO {
     }//newOrder
 
 
-    public static Double getPricePayedStock(int userID) {
+    public static Double getPricePayedStock(int userID, int stockID) {
 
         double totalPrices = 0.0;
         ArrayList<Double> pricesPayed = new ArrayList<>();
-        String getPriceSQL = "SELECT price_pay FROM STOCKS_CLIENT WHERE user_id = ?";
+        String getPriceSQL = "SELECT price_pay FROM STOCKS_CLIENT WHERE user_id = ? AND stock_id = ?";
 
         try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa")) {
             PreparedStatement getPriceStatement = connection.prepareStatement(getPriceSQL);
             getPriceStatement.setInt(1, userID);
+            getPriceStatement.setInt(2, stockID);
 
             ResultSet resultSet = getPriceStatement.executeQuery();
 

@@ -41,7 +41,7 @@ VALUES
 INSERT INTO FIXED_INCOME_CLIENT (user_id, fixed_income_id) VALUES
 (1, 1),
 (2, 1),
-(3, 3)
+(3, 3),
 (1, 2),
 (2, 2);
 

@@ -30,7 +30,7 @@ public class UpdateBalanceServlet extends HttpServlet {
             
             req.getSession().setAttribute("saldo", newBalance);
 
-            resp.sendRedirect(req.getContextPath() + "/LoggedInPages/MyAssets/myAssets.jsp");
+            req.getRequestDispatcher("LoggedInPages/MyAssets/myAssets.jsp").forward(req, resp);
 
         } else {
             System.out.println("Erro: Usuário não autenticado");

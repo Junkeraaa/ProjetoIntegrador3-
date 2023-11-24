@@ -6,7 +6,7 @@ public class UsuarioDAO {
 
 
 
-    public int getUserID(String username){
+    public static int getUserID(String username){
         String getUserSQL=  "SELECT * FROM USUARIOS WHERE login = ?";
 
         int userID = 0;

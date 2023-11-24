@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Suutz Investments</title>
-    <link rel="stylesheet" type="text/css" href="myAssets.css">
+    <link rel="stylesheet" type="text/css" href="LoggedInPages/MyAssets/myAssets.css">
     <link rel="icon" type="image/x-icon" href="Imgs/logo.ico">
 </head>
 <body>
 
     <section class="head">
         <header>
-            <a class="logo" href="../loggedIn.jsp"><img src="../..\Imgs\LogoSuutz.png" alt=""></a>
+            <a class="logo" href="/LoggedInPages/loggedIn.jsp"><img src="/Imgs\LogoSuutz.png" alt=""></a>
         </header>
     
         <div class="textAsset">Meus Ativos</div>

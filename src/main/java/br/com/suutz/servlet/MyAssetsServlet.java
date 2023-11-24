@@ -19,18 +19,13 @@ import java.util.concurrent.TimeUnit;
 public class MyAssetsServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3);
-
-        scheduler.scheduleAtFixedRate(() -> {
-
-            ArrayList<Stock> returnStocksByUser = StocksDAO.newStockOrder(GlobalData.userLogged.getUser());
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-
-
-        }, 0, 2, TimeUnit.SECONDS);
-
+        try {
+            req.getRequestDispatcher("LoggedInPages/MyAssets/myAssets.jsp").forward(req, resp);
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -41,7 +41,7 @@ public class StocksDAO {
                    UsuarioDAO.updateBalance(username,newBalance);
 
                    insertStockToUser(userID, stockID);
-                   return Math.round(newBalance * 100.0)/100.0;
+                   return newBalance;
                }else {
                    System.out.println("No Balance");
                }//else

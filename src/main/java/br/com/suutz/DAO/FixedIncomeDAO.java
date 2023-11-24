@@ -37,11 +37,15 @@ public class FixedIncomeDAO {
                     int userId = GlobalData.userLogged.getId();
                     int incomeId = getIncomeId(incomeName);
 
-                    double newBalance = getUserBalance - getIncomePrice(incomeId);
+                    double difference = getUserBalance - getIncomePrice(incomeId);
 
-                    UpdateIncomeUser.updateIncomeUserFunction();
 
-                    return Math.round(newBalance*100.0) * 100.0;
+                    UsuarioDAO.updateBalance(username,difference);
+
+                    insetIncomeToUser(userId,incomeId,difference, FixedIncomeDAO.getFee());
+
+
+                    return Math.round(difference*100.0) * 100.0;
                 }
 
 

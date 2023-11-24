@@ -27,9 +27,9 @@ public class BuyStocksServlet extends HttpServlet {
             ArrayList<Stock> listStockUser = new ArrayList<>();
             String stockName = req.getParameter("buyStock").toUpperCase();
 
-            double newOreder = StocksDAO.newStockOrder(GlobalData.userLogged.getUser(),stockName);
+            double newOrder = StocksDAO.newStockOrder(GlobalData.userLogged.getUser(),stockName);
 
-            req.getSession().setAttribute("saldo" , newOreder);
+            req.getSession().setAttribute("saldo" , newOrder);
 
             resp.sendRedirect("/getStocks");
         }

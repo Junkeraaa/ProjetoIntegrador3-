@@ -11,7 +11,7 @@ import br.com.suutz.entity.User;
 public class StocksDAO {
 
 
-    public static void newStockOrder(String username, String stockName){
+    public static double newStockOrder(String username, String stockName){
 
         String getUsernameSQL = "SELECT * FROM USUARIOS WHERE login = ?";
         double getUserBalance = 0.0;
@@ -34,11 +34,14 @@ public class StocksDAO {
 
                if(hasBalance){
 
-                   UsuarioDAO usuarioDAO = new UsuarioDAO();
                     int userID = GlobalData.userLogged.getId();
                     int stockID = StocksDAO.getStockId(stockName);
 
-                    insertStockToUser(userID, stockID);
+                   double newBalance = getUserBalance - getStockPrice(stockID);
+                   UsuarioDAO.updateBalance(username,newBalance);
+
+                   insertStockToUser(userID, stockID);
+                   return Math.round(newBalance * 100.0)/100.0;
                }else {
                    System.out.println("No Balance");
                }//else
@@ -48,6 +51,8 @@ public class StocksDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }//catch
+
+        return 0;
 
     }//newOrder
 
@@ -165,7 +170,7 @@ public class StocksDAO {
 
     try {
         Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-        System.out.println("Connection Success");
+
 
         PreparedStatement stockStatement = connection.prepareStatement(SQLSelectStock);
         stockStatement.setInt(1, id);
@@ -233,7 +238,7 @@ public class StocksDAO {
 
     try {
         Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-        System.out.println("Connection Success");
+
 
         PreparedStatement stockStatement = connection.prepareStatement(SQLSelectStock);
         stockStatement.setInt(1, userId);

@@ -36,12 +36,12 @@ public class ReturnStocksByUser {
                 myAssets.setNameStock(interactive.getNameStock());
                 myAssets.setPriceNow(interactive.getPriceStock());
                 myAssets.setPricePay((priceMedium/accounter));
+                myAssets.setBalance();
                 myAssets.setQtd(accounter);
 
                 myAssetsStocksInterface.add(myAssets);
         }
     }
-        System.out.println("Retornou array de stocks do user");
         return myAssetsStocksInterface;
 
     } 

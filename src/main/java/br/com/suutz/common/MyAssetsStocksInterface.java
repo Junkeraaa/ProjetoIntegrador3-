@@ -5,6 +5,15 @@ public class MyAssetsStocksInterface {
     private int qtd;
     private double price_pay;
     private double price_now;
+    private double balance;
+
+    public double getBalance() {
+        return this.balance;
+    }
+
+    public void setBalance() {
+        this.balance = this.price_pay - this.price_now;
+    }
 
     public String getNameStock() {
         return this.name_Stock;
@@ -23,7 +32,7 @@ public class MyAssetsStocksInterface {
     }
 
     public double getPricePay() {
-        return this.price_pay;
+        return Math.round(this.price_pay *100.0 )/100.0;
     }
 
     public void setPricePay(double price_pay) {
@@ -31,7 +40,7 @@ public class MyAssetsStocksInterface {
     }
 
     public double getPriceNow() {
-        return this.price_now;
+        return Math.round(this.price_now * 100.0)/100.0;
     }
 
     public void setPriceNow(double price_now) {

@@ -8,6 +8,8 @@ import br.com.suutz.entity.FixedIncomeClient;
 
 public class FixedIncomeDAO {
 
+
+
     public static FixedIncome getFixedIncomesById(int id) {
         FixedIncome fixedIncomeSpecific = new FixedIncome();
 
@@ -15,7 +17,7 @@ public class FixedIncomeDAO {
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-            System.out.println("Connection Success");
+
 
             PreparedStatement fixedIncomeStatement = connection.prepareStatement(SQLSelectFixedIncome);
             fixedIncomeStatement.setInt(1, id);

@@ -1,8 +1,10 @@
 package br.com.suutz.servlet;
 
 import br.com.suutz.DAO.StocksDAO;
+import br.com.suutz.DAO.UsuarioDAO;
 import br.com.suutz.common.GlobalData;
 import br.com.suutz.entity.Stock;
+import org.h2.engine.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,14 +23,13 @@ public class BuyStocksServlet extends HttpServlet {
 
         System.out.println("Received request in BuyStocksServlet");
 
-        System.out.println("USUARIO:  "+ GlobalData.userLogged.getUser());
-
         if(GlobalData.userLogged != null){
             ArrayList<Stock> listStockUser = new ArrayList<>();
             String stockName = req.getParameter("buyStock").toUpperCase();
-            System.out.println("STOCK RECEBIDO: " + stockName);
 
-            StocksDAO.newStockOrder(GlobalData.userLogged.getUser(),stockName);
+            double newOreder = StocksDAO.newStockOrder(GlobalData.userLogged.getUser(),stockName);
+
+            req.getSession().setAttribute("saldo" , newOreder);
 
             resp.sendRedirect("/getStocks");
         }

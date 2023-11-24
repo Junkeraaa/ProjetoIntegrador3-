@@ -26,11 +26,11 @@ public class UpdateBalanceServlet extends HttpServlet {
 
             UsuarioDAO.selectUserBalance(GlobalData.userLogged.getUser());
             UsuarioDAO.updateBalance(GlobalData.userLogged.getUser(), newBalance);
-
+            System.out.println("novo valor" + newBalance);
             
             req.getSession().setAttribute("saldo", newBalance);
 
-            resp.sendRedirect(req.getContextPath() + "/LoggedInPages/MyAssets/myAssets.jsp");
+            resp.sendRedirect(req.getContextPath() + "/getAssets");
 
         } else {
             System.out.println("Erro: Usuário não autenticado");

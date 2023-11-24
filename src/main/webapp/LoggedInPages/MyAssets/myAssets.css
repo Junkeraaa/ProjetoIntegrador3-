@@ -15,50 +15,62 @@ body{
     
 }
 
+.conteiner-main {
+    background-color: #0D044D;
+    width: 80%;
+    border-radius: 3rem;
+    margin-left: 3rem;
+    margin-right: 0.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
 
-thead {
-    font-size: 2rem;
-    height: 6rem;
-    font-size: 3rem;
+
+thead th {
+    font-size: 1.6rem;
+    padding: 1rem;
+}
+
+tbody td{
+    font-size: 1rem;
+    padding: 1rem;
 }
 
 tbody{
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
 
-tbody tr{
-    height: 4rem;
-}
 
 .line {
     width: 160%;
     border-top: 2px solid #000;
-    margin-left: -50%; 
+    margin-left: -50%;
 }
 
 .conteiner-left {
-    background-color: #0D044D; 
-    width: 40%; 
-    padding-bottom: 40%; 
-    border-radius: 30px;
-    margin-left: 50px;
+    background-color: #0D044D;
+    width: 50%;
+    padding-bottom: 20rem;
+    border-radius: 2rem;
+    margin-left: 5rem;
 }
 
 .conteiners{
     display: flex;
-    margin-top: 80px;
+    margin-top: 5rem;
     color: white;
-
+    margin-right: 5rem;
 }
 
 
 .conteiner-right{
 
-    background-color: #0D044D; 
-    width: 40%; 
-    padding-bottom: 40%; 
-    border-radius: 30px;
-    margin-left: 300px;
+    background-color: #0D044D;
+    width: 50%;
+    padding-bottom: 20rem;
+    border-radius: 2rem;
+    margin-left: 10rem;
 }
 
 .textAsset {

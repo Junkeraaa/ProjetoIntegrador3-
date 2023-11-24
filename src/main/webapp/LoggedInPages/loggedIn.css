@@ -3,17 +3,6 @@ body{
     background-color: #06002E;
 }
 
-/* header{
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: -22px;
-    left: 300px;
-    margin: 15px;
-
-
-} */
-
 .corner-text {
     position: absolute;
     top: 0;
@@ -33,13 +22,13 @@ body{
 
 .investments {
     text-align: center; 
-    margin-top: 10%;
+    margin-top: 1rem;
 }
 
 .meusAtivos {
     display: inline-block; 
-    margin: 0 100px; 
-    padding: 0 10px; 
+    margin: 3.9rem;
+    padding: 0.6rem;
     transition: transform 0.2s; 
     position: relative; 
 }

@@ -32,8 +32,7 @@
        <div class = "conteiner-stock">
         <div class = "buyStockForm" style = "display: none">
            <form action="/buyStock" method="post">
-               <input type="text" id="buyStock" name="buyStock" required>
-                <button type="submit">Comprar ação</button>
+               <input type="text" id="buyStock" name="buyStock" placeholder="Digite a ação" required>
            </form>
 
         </div>

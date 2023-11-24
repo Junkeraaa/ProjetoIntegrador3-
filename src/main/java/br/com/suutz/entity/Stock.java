@@ -46,25 +46,25 @@ public class Stock {
     public double getFinalValue(){
         switch (name_stock) {
             case "APPL4":
-                return price_stock-83.2;
+                return Math.round((price_stock-83.2) * 100.0)/100.0;
             case "MGLU3":
-                return price_stock-1.2;
+                return Math.round((price_stock-1.2) * 100.0) / 100.0;
             case "PETR4":
-                return price_stock-27.92;
+                return Math.round((price_stock-27.92) * 100.0) / 100.0;
             case "CIEL3":
-                return price_stock-16.33;
+                return Math.round((price_stock-16.33) * 100.0) / 100.0;
             case "ITUB4":
-                return price_stock-51.25;
+                return Math.round((price_stock-51.25) * 100.0) / 100.0;
             case "AMER3":
-                return price_stock-0.11;
+                return Math.round((price_stock-0.11) * 100.0) / 100.0;
             case "CURY3":
-                return price_stock-14.16;
+                return Math.round((price_stock-14.16 )* 100.0) / 100.0;
             case "CEAB3":
-                return price_stock-2.27;
+                return Math.round((price_stock-2.27) * 100.0) / 100.0;
             case "GGPS3":
-                return price_stock-95.8;
+                return Math.round((price_stock-95.8) * 100.0) / 100.0;
             case "TASA4":
-                return price_stock-22.22;
+                return Math.round((price_stock-22.22) * 100.0) / 100.0;
             default:
                 return price_stock-0.0;
         }

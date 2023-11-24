@@ -3,46 +3,43 @@ package br.com.suutz.DAO;
 import java.sql.*;
 import java.util.ArrayList;
 
+import br.com.suutz.common.GlobalData;
 import br.com.suutz.entity.Stock;
 import br.com.suutz.entity.StockClient;
-
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
+import br.com.suutz.entity.User;
 
 public class StocksDAO {
 
 
-    public static ArrayList <Stock> newStockOrder(String username){
+    public static void newStockOrder(String username, String stockName){
 
         String getUsernameSQL = "SELECT * FROM USUARIOS WHERE login = ?";
         double getUserBalance = 0.0;
         double getStockPrice = 0.0;
-         ArrayList<Stock> userStockList = new ArrayList<>();
+
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
             PreparedStatement userStatement = connection.prepareStatement(getUsernameSQL);
-            userStatement.setString(1, "login");
+            userStatement.setString(1, username);
             ResultSet resultSet = userStatement.executeQuery();
 
             if(resultSet.next()){
 
                 username = resultSet.getString("login");
                 getUserBalance = UsuarioDAO.selectUserBalance(username);
-                getStockPrice = getStockPrice(getStockId(username));
+                getStockPrice = getStockPrice(getStockId(stockName));
 
-               boolean hasBalance = getUserBalance > getStockPrice;
+               boolean hasBalance = getUserBalance >= getStockPrice;
 
                if(hasBalance){
+
                    UsuarioDAO usuarioDAO = new UsuarioDAO();
-                    int userID = usuarioDAO.getUserID(username);
-                    int stockID = getStockId(username);
+                    int userID = GlobalData.userLogged.getId();
+                    int stockID = StocksDAO.getStockId(stockName);
 
-
-                    userStockList.add(insertStockToUser(userID, stockID));
-                    return userStockList;
+                    insertStockToUser(userID, stockID);
                }else {
-
                    System.out.println("No Balance");
                }//else
 
@@ -51,19 +48,20 @@ public class StocksDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }//catch
-        return null;
+
     }//newOrder
 
 
-    private static Stock insertStockToUser(int userID, int stockId) {
-        String insertStockSQL = "INSERT INTO STOCKS_CLIENT (user_id, stock_id) VALUES (?, ?)";
-
+    private static void insertStockToUser(int userID, int stockId) {
+        String insertStockSQL = "INSERT INTO STOCKS_CLIENT (user_id, stock_id, price_pay) VALUES (?, ?, ?)";
+        double priceStock = getStockPrice(stockId);
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
 
             PreparedStatement insertStockStatement = connection.prepareStatement(insertStockSQL, Statement.RETURN_GENERATED_KEYS);
             insertStockStatement.setInt(1, userID);
             insertStockStatement.setInt(2, stockId);
+            insertStockStatement.setDouble(3, priceStock);
 
             int rowsAffected = insertStockStatement.executeUpdate();
 
@@ -74,12 +72,12 @@ public class StocksDAO {
                     int generatedStockId = generatedKeys.getInt(1);
                     connection.close();
 
-                    return getStockById(generatedStockId);
+                    getStockById(generatedStockId);
+                    return;
                 }
             }
 
             connection.close();
-            return null;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -102,7 +100,7 @@ public class StocksDAO {
             ResultSet resultSet = stockIdStatement.executeQuery();
 
             if (resultSet.next()) {
-                stockId = resultSet.getInt("name_stock");
+                stockId = resultSet.getInt("id");
             }
             connection.close();
         } catch (SQLException e) {

@@ -28,7 +28,7 @@ VALUES
 --POPULANDO COM A INSERÇÃO DE 4 DADOS DENTRO DA TB FIXED_INCOME
   INSERT INTO FIXED_INCOME (price, name, type, fee)
  VALUES 
-(200, 'Itaú', 'CDB', 8.5),
+(200, 'Itau', 'CDB', 8.5),
 (150, 'Santander', 'LCA', 9.2),
 (300, 'Banco do Brasil', 'CDB', 7.8),
 (500, 'Petrobras', 'Debenture', 6.5),
